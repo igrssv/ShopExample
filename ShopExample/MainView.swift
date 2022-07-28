@@ -34,21 +34,3 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-
-struct BlockView: View {
-    
-    var image: String
-    
-    var body: some View {
-        Image(image)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width, height: 200)
-            .padding()
-            .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke()
-            )
-    }
-
-}
