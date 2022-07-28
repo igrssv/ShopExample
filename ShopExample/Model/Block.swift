@@ -18,12 +18,17 @@ extension Block {
         var blocks: [Block] = []
         let data = DataManager.shared
         
-        for element in 0..<data.image.count {
-            let block = Block(
-                titel: data.name[element],
-                image: data.image[element])
-            blocks.append(block)
+        for id in 0..<data.image.count {
+            blocks.append(createSampleBlock(id: id))
         }
         return blocks
+    }
+    
+    static func createSampleBlock(id: Int) -> Block {
+        let data = DataManager.shared
+        let block = Block(
+            titel: data.name[id],
+            image: data.image[id])
+        return block
     }
 }

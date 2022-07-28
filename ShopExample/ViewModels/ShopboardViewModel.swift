@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainViewModel: ObservableObject {
+class ShopboardViewModel: ObservableObject {
     @Published var product: Product?
     @Published var blocks: [Block] = Block.createSampleBlocks()
     
