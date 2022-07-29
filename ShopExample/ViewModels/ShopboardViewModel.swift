@@ -8,16 +8,16 @@
 import Foundation
 
 class ShopboardViewModel: ObservableObject {
-    @Published var product: Product?
+    @Published var products: [Product] = []
     @Published var blocks: [Block] = Block.createSampleBlocks()
     
     init() {
-        
+        fetch()
     }
     
     
     func fetch() {
-        let urlString = "https://fakestoreapi.com/products/1"
+        let urlString = "https://fakestoreapi.com/products"
         
         guard let url = URL(string: urlString) else {return}
         
@@ -29,7 +29,7 @@ class ShopboardViewModel: ObservableObject {
             guard let data = data else {return}
             
             do {
-                self.product = try JSONDecoder().decode(Product.self, from: data)
+                self.products = try JSONDecoder().decode([Product].self, from: data)
                              
             } catch {
                 print(error)

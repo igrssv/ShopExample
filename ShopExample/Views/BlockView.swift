@@ -19,7 +19,7 @@ struct BlockView: View {
                             Image(block.image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: UIScreen.main.bounds.width, height: 200)
+                                .frame(width: UIScreen.main.bounds.width, height: 150)
                                 .padding()
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)

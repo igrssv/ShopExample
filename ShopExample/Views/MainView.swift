@@ -13,9 +13,25 @@ struct MainView: View {
         TabView {
             ShopboardView()
                 .tabItem {
-                    Text("Shop")
+                    VStack {
+                        Image(systemName: "list.bullet.rectangle.portrait")
+                        Text("Shop")
+                    }
                 }
-            
+            Text("Cart")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "cart")
+                        Text("Cart")
+                    }
+                }
+            Text("I")
+                .tabItem {
+                    VStack{
+                        Image(systemName: "person.circle")
+                        Text("Person")
+                    }
+                }
         }
         .padding(.bottom)
         
