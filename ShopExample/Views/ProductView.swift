@@ -13,18 +13,16 @@ struct ProductView: View {
         VStack {
             ScrollView {
                 VStack {
-                    Image(vm.product.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    ImageView(vm: ImageViewModel(imageURL: vm.product.image))
                         .frame(height: UIScreen.main.bounds.height * 0.4)
                         .frame(maxWidth: .infinity)
+                        .background(.white)
                     Divider()
                     VStack(alignment: .leading) {
                         Text(vm.product.title)
                             .font(.largeTitle)
                             .minimumScaleFactor(0.8)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 40)
                         Text(String(vm.product.price) + " $")
                             .font(.callout)
                         Spacer(minLength: 10)

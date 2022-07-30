@@ -1,28 +1,26 @@
 //
-//  CachedImage.swift
+//  ImageView.swift
 //  ShopExample
 //
-//  Created by Игорь Сысоев on 29.07.2022.
+//  Created by Игорь Сысоев on 30.07.2022.
 //
 
 import Foundation
-import SwiftUI
 import UIKit
 
 //MARK: - Checking for the presence of an image, downloading, saving to the cache
 class ImageViewModel: ObservableObject {
-    
     @Published var image = UIImage(named: "soldout")
     @Published var isLoad = true
-    let product: Product
+    let imageURL: String
     
-    init(product: Product) {
-        self.product = product
+    init(imageURL: String) {
+        self.imageURL = imageURL
         fetchProductImage()
     }
     //MARK: - Fetch image
     func fetchProductImage() {
-        guard let imageURL = URL(string: product.image) else {
+        guard let imageURL = URL(string: imageURL) else {
             self.image = UIImage(named: "soldout")
             return
         }
@@ -55,6 +53,4 @@ class ImageViewModel: ObservableObject {
         }
         return nil
     }
-        
-       
 }

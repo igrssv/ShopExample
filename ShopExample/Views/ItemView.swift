@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct ItemView: View {
-    @StateObject  var vm: ImageViewModel
+    @StateObject  var vm: ItemViewModel
     
     var body: some View {
         VStack(alignment: .leading)  {
-            ZStack {
-                Image(uiImage: vm.image!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(20)
-                    .frame(width: 150, height: 150)
-                    .blur(radius: vm.isLoad ? 1 : 0)
-                if vm.isLoad == true {
-                    ProgressView()
-                }
-            }
+            ImageView(vm: ImageViewModel(imageURL: vm.product.image))
+                .cornerRadius(20)
+                .frame(width: 150, height: 150)
             Text(vm.product.title)
                 .font(.title2)
                 .minimumScaleFactor(0.7)
@@ -39,7 +31,7 @@ struct ItemView_Previews: PreviewProvider {
     
     
     static var previews: some View {
-        ItemView(vm: ImageViewModel(product: Product.fetchOneProduct()))
+        ItemView(vm: ItemViewModel(product: Product.fetchOneProduct()))
             .preferredColorScheme(.dark)
     }
 }
