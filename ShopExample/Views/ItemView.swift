@@ -8,33 +8,40 @@
 import SwiftUI
 
 struct ItemView: View {
-    let titel: String
-    let price: Double
-    let image: String
+    @StateObject  var vm: ImageViewModel
+    
     var body: some View {
         VStack(alignment: .leading)  {
-            AsyncImage(url: URL(string: image)) { img in
-                img
+            ZStack {
+                Image(uiImage: vm.image!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .cornerRadius(20)
                     .frame(width: 150, height: 150)
-                
-            } placeholder: {
-                ProgressView()
+                    .blur(radius: vm.isLoad ? 1 : 0)
+                if vm.isLoad == true {
+                    ProgressView()
+                }
             }
-            Text(titel)
+            Text(vm.product.title)
                 .font(.title2)
-                .minimumScaleFactor(0.4)
-            Text("\(price) $")
-                .font(.body)
+                .minimumScaleFactor(0.7)
+            Text("\(vm.product.price) $")
+                .font(.headline)
+            
             
         }
-        .frame(width: 150)
+        .frame(width: 150, height: 200)
+        
+        
     }
 }
 
 struct ItemView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
-        ItemView(titel: "New Balance", price: 199, image: "nb")
+        ItemView(vm: ImageViewModel(product: Product.fetchOneProduct()))
+            .preferredColorScheme(.dark)
     }
 }

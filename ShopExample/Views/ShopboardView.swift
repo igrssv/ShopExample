@@ -10,8 +10,8 @@ import SwiftUI
 struct ShopboardView: View {
     @StateObject private var vm = ShopboardViewModel()
     let gridItems = [
-        GridItem(.flexible(minimum: 40, maximum: 200), spacing: 20),
-        GridItem(.flexible(minimum: 40, maximum: 200), spacing: 20)
+        GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20),
+        GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20)
     ]
     var body: some View {
         NavigationView {
@@ -20,7 +20,7 @@ struct ShopboardView: View {
                     BlockView(blocks: $vm.blocks)
                     LazyVGrid(columns: gridItems) {
                         ForEach(vm.products, id:\.id) { item in
-                            ItemView(titel: item.title, price: item.price, image: item.image)
+                            ItemView(vm: ImageViewModel(product: item))
                         }
                     }
                     .padding()

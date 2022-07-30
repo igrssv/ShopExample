@@ -19,7 +19,7 @@
 		8E65BE9A28930D2A0052DA62 /* ShopboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BE9928930D2A0052DA62 /* ShopboardView.swift */; };
 		8E65BE9C289313730052DA62 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BE9B289313730052DA62 /* ItemView.swift */; };
 		8E65BE9E2893C96C0052DA62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BE9D2893C96C0052DA62 /* NetworkManager.swift */; };
-		8E65BEA02893D7C50052DA62 /* CachedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BE9F2893D7C50052DA62 /* CachedProducts.swift */; };
+		8E65BEA02893D7C50052DA62 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BE9F2893D7C50052DA62 /* ImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		8E65BE9928930D2A0052DA62 /* ShopboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopboardView.swift; sourceTree = "<group>"; };
 		8E65BE9B289313730052DA62 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		8E65BE9D2893C96C0052DA62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		8E65BE9F2893D7C50052DA62 /* CachedProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedProducts.swift; sourceTree = "<group>"; };
+		8E65BE9F2893D7C50052DA62 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1EBC18289025AB00A65F8D /* ShopboardViewModel.swift */,
+				8E65BE9F2893D7C50052DA62 /* ImageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 			children = (
 				8E65BE8F2892F88F0052DA62 /* DataManager.swift */,
 				8E65BE9D2893C96C0052DA62 /* NetworkManager.swift */,
-				8E65BE9F2893D7C50052DA62 /* CachedProducts.swift */,
 			);
 			path = Servises;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 				8E65BE9E2893C96C0052DA62 /* NetworkManager.swift in Sources */,
 				8E1EBC0628901C2400A65F8D /* MainView.swift in Sources */,
 				8E1EBC172890212A00A65F8D /* Product.swift in Sources */,
-				8E65BEA02893D7C50052DA62 /* CachedProducts.swift in Sources */,
+				8E65BEA02893D7C50052DA62 /* ImageViewModel.swift in Sources */,
 				8E65BE9C289313730052DA62 /* ItemView.swift in Sources */,
 				8E65BE962893023E0052DA62 /* BlockView.swift in Sources */,
 				8E1EBC0428901C2400A65F8D /* ShopExampleApp.swift in Sources */,

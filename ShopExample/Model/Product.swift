@@ -16,5 +16,11 @@ struct Product: Decodable {
     let image: String
 }
 
+extension Product {
+    static func fetchOneProduct() -> Product {
+        let product = Product(id: 1, title: "test", price: 0.0, description: "", category: "", image: "soldout")
+        return product
+}
 
 
+}

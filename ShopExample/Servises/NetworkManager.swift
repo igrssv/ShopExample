@@ -20,7 +20,9 @@ class NetworkManager {
             if let error = error {
                 print(error)
             }
-            guard let data = data else {return}
+            guard let data = data else {
+                return
+            }
             do {
                 products = try JSONDecoder().decode([Product].self, from: data)
                 DispatchQueue.main.async {
@@ -30,8 +32,21 @@ class NetworkManager {
                 print(error)
             }
         }.resume()
-        
-        
+    }
+    
+    func fetchProduct(url: URL, completion: @escaping ((Data, URLResponse) -> Void)) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                print(error ?? "No data")
+                return
+            }
+            
+            guard let url = response.url else { return }
+            
+            DispatchQueue.main.async {
+                completion(data, response)
+            }
+        }.resume()
         
     }
 }

@@ -14,22 +14,28 @@ struct BlockView: View {
     var body: some View {
         VStack {
             ScrollViewReader { value in
-                    ScrollView(.horizontal) {
-                        HStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 32) {
                             ForEach(blocks.indices) { index in
-                                Image(blocks[index].image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: UIScreen.main.bounds.width, height: 150)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke()
-                                    )
-                                    .id(index)
-                                    
+                                VStack {
+                                    Image(blocks[index].image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(height: 150)
+                                        .frame(width: UIScreen.main.bounds.width - 32)
+                                        .cornerRadius(10)
+                                        .id(index)
+                                        
+                                }
+                                .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .stroke()
+                                    .shadow(color: .gray, radius: 10)
+                                )
+                                .padding(.trailing)
                             }
                         }
                     }
+                    .padding()
                     .onAppear {
                         switchBlocks(value: value)
                     }
@@ -47,8 +53,9 @@ struct BlockView: View {
                     value.scrollTo(currentindex)
                 } else {
                     currentindex += 1
+                    value.scrollTo(currentindex)
                 }
-                value.scrollTo(currentindex)
+                
             }
         }
     }
