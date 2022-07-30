@@ -26,14 +26,12 @@ struct ItemView: View {
             Text(vm.product.title)
                 .font(.title2)
                 .minimumScaleFactor(0.7)
-            Text("\(vm.product.price) $")
+            Text("\(String(vm.product.price)) $")
                 .font(.headline)
             
             
         }
         .frame(width: 150, height: 200)
-        
-        
     }
 }
 

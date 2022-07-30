@@ -18,7 +18,7 @@ struct Product: Decodable {
 
 extension Product {
     static func fetchOneProduct() -> Product {
-        let product = Product(id: 1, title: "test", price: 0.0, description: "", category: "", image: "soldout")
+        let product = Product(id: 1, title: "New Balance", price: 139.0, description: "One more...", category: "cross", image: "nb")
         return product
 }
 
