@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedTab = "Main"
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             ShopboardView()
                 .tabItem {
                     VStack {
@@ -18,13 +19,15 @@ struct MainView: View {
                         Text("Shop")
                     }
                 }
-            Text("Cart")
+                .tag(selectedTab)
+            CartView(selectedTab: $selectedTab)
                 .tabItem {
                     VStack {
                         Image(systemName: "cart")
                         Text("Cart")
                     }
                 }
+                .tag("Cart")
             Text("I")
                 .tabItem {
                     VStack{

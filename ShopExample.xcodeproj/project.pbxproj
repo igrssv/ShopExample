@@ -24,6 +24,7 @@
 		8E65BEA42895B4D30052DA62 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BEA32895B4D30052DA62 /* ProductViewModel.swift */; };
 		8E65BEA62895BBC50052DA62 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BEA52895BBC50052DA62 /* ImageViewModel.swift */; };
 		8E65BEA82895BC830052DA62 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65BEA72895BC830052DA62 /* ImageView.swift */; };
+		8EB23BEB28967A4300B4364D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BEA28967A4300B4364D /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		8E65BEA32895B4D30052DA62 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		8E65BEA52895BBC50052DA62 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		8E65BEA72895BC830052DA62 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		8EB23BEA28967A4300B4364D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				8E65BE9B289313730052DA62 /* ItemView.swift */,
 				8E65BEA12895B4C30052DA62 /* ProductView.swift */,
 				8E65BEA72895BC830052DA62 /* ImageView.swift */,
+				8EB23BEA28967A4300B4364D /* CartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				8E1EBC0428901C2400A65F8D /* ShopExampleApp.swift in Sources */,
 				8E65BE92289301150052DA62 /* Block.swift in Sources */,
 				8E65BEA62895BBC50052DA62 /* ImageViewModel.swift in Sources */,
+				8EB23BEB28967A4300B4364D /* CartView.swift in Sources */,
 				8E65BE9A28930D2A0052DA62 /* ShopboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
