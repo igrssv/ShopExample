@@ -24,8 +24,10 @@ class StorageManager {
         return decode()
     }
     
-    func deleteProduct() {
-        UserDefaults.standard.removeObject(forKey: key)
+    func deleteProduct(index: IndexSet) {
+        var products = decode()
+        products.remove(atOffsets: index)
+        encode(products: products)
     }
     
     func save(data: Data) {

@@ -19,7 +19,7 @@ struct MainView: View {
                         Text("Shop")
                     }
                 }
-                .tag(selectedTab)
+                .tag("Main")
             CartView(selectedTab: $selectedTab)
                 .tabItem {
                     VStack {

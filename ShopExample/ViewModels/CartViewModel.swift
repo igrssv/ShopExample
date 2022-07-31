@@ -9,15 +9,15 @@ import Foundation
 
 class CartViewModel: ObservableObject {
     @Published var products: [Product] = []
-    let product = [Product.fetchOneProduct()]
+    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
     
    
     func fetch() {
         self.products = StorageManager.shared.loadProduct()
     }
     
-    func del() {
-        StorageManager.shared.deleteProduct()
+    func deleteProduct(index: IndexSet) {
+        StorageManager.shared.deleteProduct(index: index)
         self.products = StorageManager.shared.loadProduct()
     }
 }
