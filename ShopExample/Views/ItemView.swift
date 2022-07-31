@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     @StateObject  var vm: ItemViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading)  {
             ImageView(vm: ImageViewModel(imageURL: vm.product.image))
@@ -20,10 +20,14 @@ struct ItemView: View {
                 .minimumScaleFactor(0.7)
             Text("\(String(vm.product.price)) $")
                 .font(.headline)
-            
-            
         }
         .frame(width: 150, height: 200)
+        .onTapGesture {
+            vm.show()
+        }
+        .sheet(isPresented: $vm.isShow) {
+            ProductView(vm: ProductViewModel(product: vm.product))
+        }
     }
 }
 

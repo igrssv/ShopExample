@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ShopboardView: View {
     @StateObject private var vm = ShopboardViewModel()
-    @State private var isShow = false
     let gridItems = [
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20),
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20)
@@ -22,12 +21,6 @@ struct ShopboardView: View {
                     LazyVGrid(columns: gridItems) {
                         ForEach(vm.products, id:\.id) { item in
                             ItemView(vm: ItemViewModel(product: item))
-                                .onTapGesture {
-                                    isShow.toggle()
-                                }
-                                .sheet(isPresented: $isShow) {
-                                    ProductView(vm: ProductViewModel(product: item))
-                                }
                         }
                     }
                     .padding()
