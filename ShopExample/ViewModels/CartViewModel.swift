@@ -8,9 +8,14 @@
 import Foundation
 
 class CartViewModel: ObservableObject {
-    @Published var products: [Product] = []
-    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
+    @Published var products: [Product] = [] {
+        didSet {
+            calculation()
+        }
+    }
     
+    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
+    @Published var finalPrice: Double = 0
    
     func fetch() {
         self.products = StorageManager.shared.loadProduct()
@@ -19,5 +24,9 @@ class CartViewModel: ObservableObject {
     func deleteProduct(index: IndexSet) {
         StorageManager.shared.deleteProduct(index: index)
         self.products = StorageManager.shared.loadProduct()
+    }
+    
+    func calculation() {
+        finalPrice = products.map({$0.price}).reduce(0, +)
     }
 }

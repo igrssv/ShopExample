@@ -30,8 +30,30 @@ struct CartView: View {
                 }
                 .navigationTitle("Cart")
             } else {
+                VStack {
                 CartRowView(vm: vm)
                     .navigationTitle("Cart")
+                    Divider()
+                    HStack {
+                        Text("Final price:")
+                        Spacer()
+                        Text(String(vm.finalPrice) + " $")
+                    }
+                    .font(.title)
+                    .padding(.horizontal)
+                    Button(action: {}) {
+                        Text("Checkout")
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .frame(height: 30)
+                    }
+                    .background(.blue)
+                    .cornerRadius(10)
+                    .padding([.horizontal, .bottom])
+                    
+                    
+                    
+                }
             }
         }
         .onAppear {
