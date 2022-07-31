@@ -18,12 +18,12 @@ struct ProductView: View {
                         .frame(height: UIScreen.main.bounds.height * 0.4)
                         .frame(maxWidth: .infinity)
                         .background(.white)
+                        .padding(.top)
                     Divider()
                     VStack(alignment: .leading) {
                         Text(vm.product.title)
                             .font(.largeTitle)
                             .minimumScaleFactor(0.8)
-                            .frame(maxWidth: .infinity)
                         Text(String(vm.product.price) + " $")
                             .font(.callout)
                         Spacer(minLength: 10)
@@ -33,27 +33,41 @@ struct ProductView: View {
                         Spacer(minLength: 10)
                         Text(vm.product.description)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                 }
             }
             Divider()
             VStack() {
                 Button(action: {
-                    StorageManager.shared.saveProduct(product: vm.product)
+                    vm.buyProduct()
                 }) {
-                    Text("Buy")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 30)
+                    ZStack {
+                        HStack {
+                            Text("Buy")
+                                .font(.title)
+                                .frame(maxWidth: .infinity)
+                            .frame(height: 30)
+                        }
+                        HStack {
+                            Spacer()
+                            Text(vm.currentProducttoCart)
+                                .font(.title2)
+                            Image(systemName: "cart")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                        }
+                        .padding(.trailing)
+                    }
+                    .foregroundColor(.white)
                 }
+                .animation(.default, value: vm.currentProducttoCart)
                 .background(.blue)
                 .cornerRadius(30)
                 .buttonStyle(.bordered)
                 .padding(.horizontal)
             }
             .padding()
-            
         }
     }
 }
