@@ -17,7 +17,6 @@ class ShopboardViewModel: ObservableObject {
     func fetch() {
         NetworkManager.shared.fetchProducts { products in
             self.products = products
-            print(products.count)
         }
     }
 }

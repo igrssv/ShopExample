@@ -37,7 +37,9 @@ struct ProductView: View {
             }
             Divider()
             VStack() {
-                Button(action: {}) {
+                Button(action: {
+                    StorageManager.shared.saveProduct(product: vm.product)
+                }) {
                     Text("Buy")
                         .font(.title)
                         .foregroundColor(.white)
