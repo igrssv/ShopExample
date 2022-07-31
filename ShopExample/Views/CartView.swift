@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CartView: View {
-    @State private var goMainView = false
     @ObservedObject var vm = CartViewModel()
     @Binding var selectedTab: String
     var body: some View {
@@ -17,7 +16,7 @@ struct CartView: View {
                 VStack {
                     Image(systemName: "cart")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
                     Text("Cart is empty.")
                     Button(action: {selectedTab = "Main"}) {
@@ -28,39 +27,13 @@ struct CartView: View {
                     .background(.blue)
                     .buttonStyle(.bordered)
                     .cornerRadius(20)
-                    .sheet(isPresented: $goMainView) {
-                        ShopboardView()
-                    }
                 }
+                .navigationTitle("Cart")
             } else {
-                VStack {
-                    Button(action: {
-                        vm.fetch()
-                    }) {
-                        Text("fetch")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                    }
-                    Button(action: {
-                        vm.del()
-                    }) {
-                        Text("del")
-                            .font(.largeTitle)
-                            .foregroundColor(.red)
-                    }
-                    ScrollView {
-                        ForEach(vm.products, id:\.id) { item in
-                            HStack {
-                                ImageView(vm: ImageViewModel(imageURL: item.image))
-                                    .frame(width: 100, height: 100)
-                                Text(item.title)
-                            }
-                        }
-                    }
-                }
+                CartRowView(vm: vm)
+                    .navigationTitle("Cart")
             }
         }
-        .navigationTitle("Cart")
         .onAppear {
             vm.fetch()
         }

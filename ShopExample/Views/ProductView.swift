@@ -14,6 +14,7 @@ struct ProductView: View {
             ScrollView {
                 VStack {
                     ImageView(vm: ImageViewModel(imageURL: vm.product.image))
+                        .aspectRatio(contentMode: .fit)
                         .frame(height: UIScreen.main.bounds.height * 0.4)
                         .frame(maxWidth: .infinity)
                         .background(.white)

@@ -9,6 +9,7 @@ import Foundation
 
 class CartViewModel: ObservableObject {
     @Published var products: [Product] = []
+    let product = [Product.fetchOneProduct()]
     
    
     func fetch() {

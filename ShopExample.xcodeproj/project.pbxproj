@@ -27,6 +27,7 @@
 		8EB23BEB28967A4300B4364D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BEA28967A4300B4364D /* CartView.swift */; };
 		8EB23BED2896839100B4364D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BEC2896839100B4364D /* StorageManager.swift */; };
 		8EB23BEF289686A800B4364D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BEE289686A800B4364D /* CartViewModel.swift */; };
+		8EB23BF12896C4A200B4364D /* CartRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF02896C4A200B4364D /* CartRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		8EB23BEA28967A4300B4364D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		8EB23BEC2896839100B4364D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8EB23BEE289686A800B4364D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		8EB23BF02896C4A200B4364D /* CartRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				8E65BEA12895B4C30052DA62 /* ProductView.swift */,
 				8E65BEA72895BC830052DA62 /* ImageView.swift */,
 				8EB23BEA28967A4300B4364D /* CartView.swift */,
+				8EB23BF02896C4A200B4364D /* CartRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				8E65BE9C289313730052DA62 /* ItemView.swift in Sources */,
 				8E65BE962893023E0052DA62 /* BlockView.swift in Sources */,
 				8E1EBC0428901C2400A65F8D /* ShopExampleApp.swift in Sources */,
+				8EB23BF12896C4A200B4364D /* CartRowView.swift in Sources */,
 				8E65BE92289301150052DA62 /* Block.swift in Sources */,
 				8E65BEA62895BBC50052DA62 /* ImageViewModel.swift in Sources */,
 				8EB23BEB28967A4300B4364D /* CartView.swift in Sources */,

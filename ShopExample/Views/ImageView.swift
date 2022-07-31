@@ -13,7 +13,6 @@ struct ImageView: View {
         ZStack {
             Image(uiImage: vm.image!)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
                 .blur(radius: vm.isLoad ? 1 : 0)
             if vm.isLoad == true {
                 ProgressView()

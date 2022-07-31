@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: - Checking for the presence of an image, downloading, saving to the cache
 class ImageViewModel: ObservableObject {
-    @Published var image = UIImage(named: "soldout")
+    @Published var image = UIImage(named: "nike")
     @Published var isLoad = true
     let imageURL: String
     

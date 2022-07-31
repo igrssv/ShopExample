@@ -13,10 +13,13 @@ struct ItemView: View {
     var body: some View {
         VStack(alignment: .leading)  {
             ImageView(vm: ImageViewModel(imageURL: vm.product.image))
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .scale(1.1)
+                        .foregroundColor(Color("BGImage"))
+                        
                 )
             Text(vm.product.title)
                 .font(.title2)
