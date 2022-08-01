@@ -32,6 +32,7 @@
 		8EB23BF52897F73A00B4364D /* ButtonCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF42897F73A00B4364D /* ButtonCartView.swift */; };
 		8EB23BF72897F7CC00B4364D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */; };
 		8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF82897FAF200B4364D /* CreatePersonView.swift */; };
+		8EB23BFB289806EC00B4364D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BFA289806EC00B4364D /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		8EB23BF42897F73A00B4364D /* ButtonCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCartView.swift; sourceTree = "<group>"; };
 		8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8EB23BF82897FAF200B4364D /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
+		8EB23BFA289806EC00B4364D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +95,13 @@
 		8E1EBC0228901C2400A65F8D /* ShopExample */ = {
 			isa = PBXGroup;
 			children = (
+				8E1EBC152890211500A65F8D /* Model */,
 				8E1EBC0328901C2400A65F8D /* ShopExampleApp.swift */,
 				8E65BE8E2892F87D0052DA62 /* Servises */,
 				8E1EBC1228901C7C00A65F8D /* ViewModels */,
 				8E1EBC1128901C7400A65F8D /* Views */,
 				8E1EBC0728901C2700A65F8D /* Assets.xcassets */,
 				8E1EBC0928901C2700A65F8D /* Preview Content */,
-				8E1EBC152890211500A65F8D /* Model */,
 			);
 			path = ShopExample;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 			children = (
 				8E1EBC162890212A00A65F8D /* Product.swift */,
 				8E65BE91289301150052DA62 /* Block.swift */,
+				8EB23BFA289806EC00B4364D /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				8E65BE902892F88F0052DA62 /* DataManager.swift in Sources */,
 				8E65BE9E2893C96C0052DA62 /* NetworkManager.swift in Sources */,
 				8E1EBC0628901C2400A65F8D /* MainView.swift in Sources */,
+				8EB23BFB289806EC00B4364D /* Person.swift in Sources */,
 				8EB23BEF289686A800B4364D /* CartViewModel.swift in Sources */,
 				8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */,
 				8E65BEA22895B4C30052DA62 /* ProductView.swift in Sources */,

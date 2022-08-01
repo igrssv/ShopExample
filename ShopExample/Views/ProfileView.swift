@@ -11,14 +11,13 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     @State private var isShow = false
     var body: some View {
-        if vm.person {
+        if (vm.person != nil) {
             VStack {
                 HStack(spacing: 30) {
-                    Image("nike")
+                    Image("user")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .scaleEffect(1)
-                        .frame(width: 60, height: 60, alignment: .leading)
+                        .frame(width: 100, height: 100, alignment: .leading)
                         .clipShape(Circle())
                         .overlay(Circle().stroke())
                     Text("Adam Smit")
