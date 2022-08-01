@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
+    @State private var isShow = false
     var body: some View {
         if vm.person {
             VStack {
@@ -45,7 +46,7 @@ struct ProfileView: View {
                 VStack {
                     Text("Don't have an account?")
                     Text("Let's create!")
-                    Button(action: {}, label: {
+                    Button(action: {isShow.toggle()}, label: {
                         Text("Create account")
                             .font(.title3)
                             .frame(height: 40)
@@ -54,7 +55,9 @@ struct ProfileView: View {
                     })
                     .background(.green)
                     .cornerRadius(10)
-                        
+                }
+                .fullScreenCover(isPresented: $isShow) {
+                    CreatePersonView()
                 }
                 Spacer()
                 ButtonCartView(titel: "About the application")

@@ -31,6 +31,7 @@
 		8EB23BF32897C61E00B4364D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF22897C61E00B4364D /* ProfileView.swift */; };
 		8EB23BF52897F73A00B4364D /* ButtonCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF42897F73A00B4364D /* ButtonCartView.swift */; };
 		8EB23BF72897F7CC00B4364D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */; };
+		8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF82897FAF200B4364D /* CreatePersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		8EB23BF22897C61E00B4364D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8EB23BF42897F73A00B4364D /* ButtonCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCartView.swift; sourceTree = "<group>"; };
 		8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8EB23BF82897FAF200B4364D /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				8EB23BF02896C4A200B4364D /* CartRowView.swift */,
 				8EB23BF22897C61E00B4364D /* ProfileView.swift */,
 				8EB23BF42897F73A00B4364D /* ButtonCartView.swift */,
+				8EB23BF82897FAF200B4364D /* CreatePersonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				8E65BE9E2893C96C0052DA62 /* NetworkManager.swift in Sources */,
 				8E1EBC0628901C2400A65F8D /* MainView.swift in Sources */,
 				8EB23BEF289686A800B4364D /* CartViewModel.swift in Sources */,
+				8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */,
 				8E65BEA22895B4C30052DA62 /* ProductView.swift in Sources */,
 				8E65BEA42895B4D30052DA62 /* ProductViewModel.swift in Sources */,
 				8E1EBC172890212A00A65F8D /* Product.swift in Sources */,
