@@ -30,6 +30,9 @@ class StorageManager {
         encode(products: products)
     }
     
+    func clear() {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
     func save(data: Data) {
         UserDefaults.standard.set(data, forKey: key)
     }
