@@ -39,7 +39,7 @@ struct CartRowView: View {
                             Text(product.title)
                                 .font(.title3)
                                 .minimumScaleFactor(0.8)
-                            Text(String(product.price) + " $")
+                            Text(String(format: "%.2f", product.price) + " $")
                             Spacer()
                         }
                         .padding(.horizontal)

@@ -37,9 +37,11 @@ struct CartView: View {
                     HStack {
                         Text("Final price:")
                         Spacer()
-                        Text(String(vm.finalPrice) + " $")
+                        Text(String(format: "%.2f", vm.finalPrice) + " $")
                     }
                     .font(.title)
+                    .minimumScaleFactor(0.7)
+                    .frame(height: 40)
                     .padding(.horizontal)
                     Button(action: {}) {
                         Text("Checkout")
@@ -50,15 +52,13 @@ struct CartView: View {
                     .background(.blue)
                     .cornerRadius(10)
                     .padding([.horizontal, .bottom])
-                    
-                    
-                    
                 }
             }
         }
         .onAppear {
             vm.fetch()
         }
+        .animation(.default, value: vm.finalPrice)
     }
 }
 
