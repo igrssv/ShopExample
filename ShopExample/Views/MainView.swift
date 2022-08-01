@@ -28,7 +28,7 @@ struct MainView: View {
                     }
                 }
                 .tag("Cart")
-            Text("I")
+            ProfileView()
                 .tabItem {
                     VStack{
                         Image(systemName: "person.circle")
@@ -36,8 +36,6 @@ struct MainView: View {
                     }
                 }
         }
-        .padding(.bottom)
-        
     }
 }
 
