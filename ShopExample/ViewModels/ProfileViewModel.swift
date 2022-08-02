@@ -16,11 +16,15 @@ class ProfileViewModel: ObservableObject {
     }
     
     func fetchPerson() {
-        self.person = StorageManager.shared.loadPerson()
+        var person: Person?
+        StorageManager.shared.load(key: .keyPerson) { (value: Person) in
+            person = value
+        }
+        self.person = person
     }
     
     func clearPerson() {
-        StorageManager.shared.clearPerson()
+        StorageManager.shared.clear(key: .keyPerson)
         fetchPerson()
     }
     

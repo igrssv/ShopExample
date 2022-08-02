@@ -16,8 +16,9 @@ class ProductViewModel: ObservableObject {
     }
     
     func buyProduct() {
-        StorageManager.shared.saveProduct(product: self.product)
-        currentProducttoCart = String(StorageManager.shared.loadProduct().filter({$0.id == product.id}).count)
-        print(currentProducttoCart)
+        StorageManager.shared.saveProduct(product: product)
+        StorageManager.shared.load(key: .keyProduct) { (value: [Product]) in
+            self.currentProducttoCart = String(value.filter({$0.id == product.id}).count)
+        }
     }
 }

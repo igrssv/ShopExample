@@ -7,91 +7,65 @@
 
 import Foundation
 
+enum Keys: String {
+    case keyProduct = "products"
+    case keyPerson = "user"
+}
+
 class StorageManager {
     static var shared = StorageManager()
     
     init() {}
-    
-    private let keyProduct = "products"
-    private let keyPerson = "user"
 
 }
 
-//MARK: - Product saved
 extension StorageManager {
     
     func saveProduct(product: Product) {
-        var products = decode()
+        var products: [Product] = []
+        load(key: .keyProduct) { (value: [Product]) in
+            products = value
+        }
         products.append(product)
-        encode(products: products)
+        saveData(saveData: products, key: Keys.keyProduct)
     }
     
-    func loadProduct() -> [Product]  {
-        return decode()
+    func saveData<T: Encodable & Decodable>(saveData: T, key: Keys) {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(saveData)
+            save(data: data, key: key.rawValue)
+        } catch {
+            print(error)
+        }
     }
     
-    func deleteProduct(index: IndexSet) {
-        var products = decode()
-        products.remove(atOffsets: index)
-        encode(products: products)
-    }
-    
-    func clear() {
-        UserDefaults.standard.removeObject(forKey: keyProduct)
-    }
     func save(data: Data, key: String) {
         UserDefaults.standard.set(data, forKey: key)
     }
     
-    private func encode(products: [Product]) {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(products)
-            save(data: data, key: keyProduct)
-        } catch {
-            print(error)
-        }
+    func clear(key: Keys) {
+        UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
     
-    private func decode() -> [Product] {
-        let date = UserDefaults.standard.data(forKey: keyProduct) ?? Data()
-        let decode = JSONDecoder()
-        var dataDecode: [Product] = []
-        do {
-            dataDecode = try decode.decode([Product].self, from: date)
-        } catch {
-            print(error)
-        }
-        return dataDecode
-    }
-}
-
-//MARK: - Person saved
-extension StorageManager {
-
-    
-    func clearPerson() {
-        UserDefaults.standard.removeObject(forKey: keyPerson)
-    }
-    
-    func savePerson(person: Person) {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(person)
-            save(data: data, key: keyPerson)
-        } catch {
-            print(error)
-        }
-    }
-    
-    func loadPerson() -> Person? {
-        let date = UserDefaults.standard.data(forKey: keyPerson) ?? Data()
+    func load<T: Encodable & Decodable>(key: Keys, compliction: (T) -> ())  {
+        let date = UserDefaults.standard.data(forKey: key.rawValue) ?? Data()
         let decode = JSONDecoder()
         do {
-            return try decode.decode(Person.self, from: date)
+            var object: T
+            object = try decode.decode(T.self, from: date)
+            compliction(object)
         } catch {
             print(error)
         }
-        return nil
+    }
+    
+    func deleteProduct(index: IndexSet, key: Keys) {
+        var data: [Product] = []
+        load(key: key) { (value: [Product]) in
+            data = value
+        }
+        data.remove(atOffsets: index)
+        saveData(saveData: data, key: key)
     }
 }
