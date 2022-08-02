@@ -33,6 +33,7 @@
 		8EB23BF72897F7CC00B4364D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */; };
 		8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF82897FAF200B4364D /* CreatePersonView.swift */; };
 		8EB23BFB289806EC00B4364D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BFA289806EC00B4364D /* Person.swift */; };
+		8EB23BFD28980E7000B4364D /* CreatePersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8EB23BF82897FAF200B4364D /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
 		8EB23BFA289806EC00B4364D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				8E65BEA52895BBC50052DA62 /* ImageViewModel.swift */,
 				8EB23BEE289686A800B4364D /* CartViewModel.swift */,
 				8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */,
+				8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				8E65BEA42895B4D30052DA62 /* ProductViewModel.swift in Sources */,
 				8E1EBC172890212A00A65F8D /* Product.swift in Sources */,
 				8E65BEA02893D7C50052DA62 /* ItemViewModel.swift in Sources */,
+				8EB23BFD28980E7000B4364D /* CreatePersonViewModel.swift in Sources */,
 				8E65BE9C289313730052DA62 /* ItemView.swift in Sources */,
 				8EB23BF32897C61E00B4364D /* ProfileView.swift in Sources */,
 				8E65BE962893023E0052DA62 /* BlockView.swift in Sources */,

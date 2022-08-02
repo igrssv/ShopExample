@@ -8,43 +8,56 @@
 import SwiftUI
 
 struct CreatePersonView: View {
-    @State private var name = ""
-    @State private var lastName = ""
-    @State private var phone = ""
-    @State private var email = ""
+    @ObservedObject var vm: CreatePersonViewModel
+
     var body: some View {
         VStack {
             HStack {
-                Text("Hello\(name.isEmpty ? "" : ",")")
-                Text(name.uppercased())
+                Text("Hello\(vm.name.isEmpty ? "" : ",")")
+                Text(vm.name.uppercased())
             }
             .font(.title)
-            .frame(height: UIScreen.main.bounds.height * 0.2)
+            .frame(height: UIScreen.main.bounds.height * 0.13)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
-            TextField("You name", text: $name)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            TextField("You last name", text: $lastName)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            TextField("You phone", text: $phone)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            TextField("You e-mail ", text: $email)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            Spacer()
-            ButtonCartView(titel: "Let's go")
+            ScrollView {
+                VStack {
+                    TextFieldCreateView(text: $vm.name, titel: "Your name:", plaseholder: "Jonny")
+                    TextFieldCreateView(text: $vm.lastName, titel: "Your last name:", plaseholder: "Cage")
+                    TextFieldCreateView(text: $vm.phone, titel: "Phone:", plaseholder: "+7999999999")
+                    TextFieldCreateView(text: $vm.email, titel: "Email:", plaseholder: "JonnyCage@gmail.com")
+                    TextFieldCreateView(text: $vm.city, titel: "City:", plaseholder: "New York")
+                    TextFieldCreateView(text: $vm.addres, titel: "Addres:", plaseholder: "62-10 Northern Blvd")
+                    ButtonCartView(titel: "Let's go")
+                        .onTapGesture {
+                            vm.savePerson()
+                        }
+                }
+            }
+            
                 
         }
-        .animation(.default, value: name)
+        .animation(.default, value: vm.name)
     }
 }
 
 struct CreatePersonView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePersonView()
-            
+        CreatePersonView(vm: CreatePersonViewModel(profileVM: ProfileViewModel()))
+    }
+}
+
+struct TextFieldCreateView: View {
+    @Binding var text: String
+    let titel: String
+    let plaseholder: String
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(titel)
+                .padding(.leading)
+            TextField(plaseholder, text: $text)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+        }
     }
 }

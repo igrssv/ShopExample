@@ -12,7 +12,13 @@ class StorageManager {
     
     init() {}
     
-    private let key = "products"
+    private let keyProduct = "products"
+    private let keyPerson = "user"
+
+}
+
+//MARK: - Product saved
+extension StorageManager {
     
     func saveProduct(product: Product) {
         var products = decode()
@@ -31,9 +37,9 @@ class StorageManager {
     }
     
     func clear() {
-        UserDefaults.standard.removeObject(forKey: key)
+        UserDefaults.standard.removeObject(forKey: keyProduct)
     }
-    func save(data: Data) {
+    func save(data: Data, key: String) {
         UserDefaults.standard.set(data, forKey: key)
     }
     
@@ -41,14 +47,14 @@ class StorageManager {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(products)
-            save(data: data)
+            save(data: data, key: keyProduct)
         } catch {
             print(error)
         }
     }
     
     private func decode() -> [Product] {
-        let date = UserDefaults.standard.data(forKey: key) ?? Data()
+        let date = UserDefaults.standard.data(forKey: keyProduct) ?? Data()
         let decode = JSONDecoder()
         var dataDecode: [Product] = []
         do {
@@ -57,5 +63,35 @@ class StorageManager {
             print(error)
         }
         return dataDecode
+    }
+}
+
+//MARK: - Person saved
+extension StorageManager {
+
+    
+    func clearPerson() {
+        UserDefaults.standard.removeObject(forKey: keyPerson)
+    }
+    
+    func savePerson(person: Person) {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(person)
+            save(data: data, key: keyPerson)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadPerson() -> Person? {
+        let date = UserDefaults.standard.data(forKey: keyPerson) ?? Data()
+        let decode = JSONDecoder()
+        do {
+            return try decode.decode(Person.self, from: date)
+        } catch {
+            print(error)
+        }
+        return nil
     }
 }
