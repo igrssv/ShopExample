@@ -12,19 +12,12 @@ struct Person: Encodable, Decodable {
     let lastName: String
     let phone: String
     let email: String
-    let address: [Address]
 }
 
 
 extension Person {
     static func tempPerson() -> Person {
-        let person = Person(name: "Tony", lastName: "Stark", phone: "+99919999", email: "ironman@stark.com", address: [Address(city: "New York", addres: "tower avengeres 22/1")])
+        let person = Person(name: "Tony", lastName: "Stark", phone: "+99919999", email: "ironman@stark.com")
         return person
     }
-}
-
-
-struct Address: Encodable, Decodable {
-    let city: String
-    let addres: String
 }

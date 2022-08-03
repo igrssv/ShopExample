@@ -11,19 +11,6 @@ struct CartRowView: View {
     @ObservedObject var vm: CartViewModel
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    vm.clearCart()
-                }) {
-                    Text("Clear cart")
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width * 0.3 ,height: 30)
-                }
-                .background(.red)
-                .cornerRadius(10)
-                .padding(.trailing)
-            }
             List {
                 ForEach(vm.products, id:\.id) { product in
                     HStack {

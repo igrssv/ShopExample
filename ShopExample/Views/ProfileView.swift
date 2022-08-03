@@ -11,12 +11,15 @@ struct ProfileView: View {
     @StateObject var vm = ProfileViewModel()
     @State private var isShow = false
     var body: some View {
-        VStack {
-            if vm.person != nil {
-                AuthorizedUserView(vm: vm)
-            } else {
-                NoAuthorizedUserView(vm: vm, isShow:  $isShow)
+        NavigationView {
+            VStack {
+                if vm.person != nil {
+                    AuthorizedUserView(vm: vm)
+                } else {
+                    NoAuthorizedUserView(vm: vm, isShow:  $isShow)
+                }
             }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -83,18 +86,17 @@ struct NoAuthorizedUserView: View {
                 
                 Text("Don't have an account?")
                 Text("Let's create!")
-                Button(action: {vm.showCreateCiew()}, label: {
+                NavigationLink {
+                    CreatePersonView(vm: CreatePersonViewModel(profileVM: vm))
+                } label: {
                     Text("Create account")
                         .font(.title3)
                         .frame(height: 40)
                         .frame(width: UIScreen.main.bounds.width * 0.6, alignment: .center)
                         .foregroundColor(.white)
-                })
-                .background(.green)
-                .cornerRadius(10)
-            }
-            .fullScreenCover(isPresented: $vm.isShow) {
-                CreatePersonView(vm: CreatePersonViewModel(profileVM: vm))
+                        .background(.green)
+                        .cornerRadius(10)
+                }
             }
             Spacer()
             Button(action: {}) {

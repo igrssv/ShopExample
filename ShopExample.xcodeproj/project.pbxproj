@@ -38,6 +38,7 @@
 		8EB23C03289A68C500B4364D /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C02289A68C500B4364D /* CheckoutView.swift */; };
 		8EB23C05289A691300B4364D /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C04289A691300B4364D /* CheckoutViewModel.swift */; };
 		8EB23C07289A6CDD00B4364D /* Delivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C06289A6CDD00B4364D /* Delivery.swift */; };
+		8EB23C09289AB52900B4364D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C08289AB52900B4364D /* Address.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		8EB23C02289A68C500B4364D /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		8EB23C04289A691300B4364D /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
 		8EB23C06289A6CDD00B4364D /* Delivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delivery.swift; sourceTree = "<group>"; };
+		8EB23C08289AB52900B4364D /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				8E65BE91289301150052DA62 /* Block.swift */,
 				8EB23BFA289806EC00B4364D /* Person.swift */,
 				8EB23C06289A6CDD00B4364D /* Delivery.swift */,
+				8EB23C08289AB52900B4364D /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				8E65BE92289301150052DA62 /* Block.swift in Sources */,
 				8E65BEA62895BBC50052DA62 /* ImageViewModel.swift in Sources */,
 				8EB23C0128995DAD00B4364D /* CartIconView.swift in Sources */,
+				8EB23C09289AB52900B4364D /* Address.swift in Sources */,
 				8EB23C07289A6CDD00B4364D /* Delivery.swift in Sources */,
 				8EB23BF72897F7CC00B4364D /* ProfileViewModel.swift in Sources */,
 				8EB23BEB28967A4300B4364D /* CartView.swift in Sources */,

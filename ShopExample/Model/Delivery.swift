@@ -10,7 +10,8 @@ import Foundation
 struct Delivery: Encodable, Decodable {
     let person: Person
     let products: [Product]
-    let status: StatusDelivery
+    let address: Address
+    var status: StatusDelivery
     
 }
 

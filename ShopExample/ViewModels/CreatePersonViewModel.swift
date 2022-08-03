@@ -25,8 +25,7 @@ class CreatePersonViewModel: ObservableObject {
             name: name,
             lastName: lastName,
             phone: phone,
-            email: email,
-            address: [Address(city: city, addres: addres)])
+            email: email)
         StorageManager.shared.saveData(saveData: person, key: .keyPerson)
         profileVM.showCreateCiew()
     }
