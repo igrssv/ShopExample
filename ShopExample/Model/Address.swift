@@ -10,4 +10,5 @@ import Foundation
 struct Address: Encodable, Decodable {
     let city: String
     let addres: String
+    let home: String
 }

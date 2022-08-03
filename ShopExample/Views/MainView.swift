@@ -22,10 +22,7 @@ struct MainView: View {
                 .tag("Main")
             CartView(selectedTab: $selectedTab)
                 .tabItem {
-                    VStack {
-                        Image(systemName: "cart")
-                        Text("Cart")
-                    }
+                    CartIconView(vm: CartViewModel())
                 }
                 .tag("Cart")
             ProfileView()
@@ -35,6 +32,7 @@ struct MainView: View {
                         Text("Person")
                     }
                 }
+                .tag("Profile")
         }
     }
 }

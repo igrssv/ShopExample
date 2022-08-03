@@ -10,6 +10,8 @@ import Foundation
 enum Keys: String {
     case keyProduct = "products"
     case keyPerson = "user"
+    case keyAddress = "address"
+    case keyDelevery = "delevery"
 }
 
 class StorageManager {

@@ -18,14 +18,23 @@ class CartViewModel: ObservableObject {
     
     @Published var finalPrice: Double = 0
    
+    var person: Person?
+    
+        
     func fetch() {
         var products: [Product] = []
         StorageManager.shared.load(key: .keyProduct) { (value: [Product]) in
             products = value
         }
         self.products = products
+        fetchPerson()
     }
-    
+    func fetchPerson() {
+        
+        StorageManager.shared.load(key: .keyPerson) { (value: Person) in
+            self.person = value
+        }
+    }
     func deleteProduct(index: IndexSet) {
         StorageManager.shared.deleteProduct(index: index, key: .keyProduct)
         fetch()

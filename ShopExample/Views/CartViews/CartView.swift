@@ -17,36 +17,7 @@ struct CartView: View {
                 if vm.products.isEmpty {
                     NoCartGoodsView(selectedTab: $selectedTab)
                 } else {
-                    VStack {
-                        HStack {
-                            Text("Cart")
-                                .font(.largeTitle)
-                                .bold()
-                            Spacer()
-                            Button(action: {
-                                vm.clearCart()
-                            }) {
-                                Text("Clear cart")
-                                    .foregroundColor(.white)
-                                    .frame(width: UIScreen.main.bounds.width * 0.3 ,height: 30)
-                            }
-                            .background(.red)
-                            .cornerRadius(10)
-                        }
-                        .padding()
-                    CartRowView(vm: vm)
-                        Divider()
-                        FinalPriceView(finalPrice: $vm.finalPrice)
-                        NavigationLink(destination: CheckoutView(vm: CheckoutViewModel(cartVM: vm)), isActive: $isShow) {
-                            Text("Checkout")
-                                .frame(maxWidth: .infinity)
-                                .foregroundColor(.white)
-                                .frame(height: 30)
-                                .background(.blue)
-                                .cornerRadius(10)
-                                .padding([.horizontal, .bottom])
-                        }
-                    }
+                    CartGoodsView(vm: vm, selectedTab: $selectedTab, isShow: $isShow)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -99,3 +70,5 @@ struct FinalPriceView: View {
         .padding(.horizontal)
     }
 }
+
+
