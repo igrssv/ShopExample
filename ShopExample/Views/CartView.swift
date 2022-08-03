@@ -31,6 +31,19 @@ struct CartView: View {
                 .navigationTitle("Cart")
             } else {
                 VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            vm.clearCart()
+                        }) {
+                            Text("Clear cart")
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width * 0.3 ,height: 30)
+                        }
+                        .background(.red)
+                        .cornerRadius(10)
+                        .padding(.trailing)
+                    }
                 CartRowView(vm: vm)
                     .navigationTitle("Cart")
                     Divider()

@@ -34,6 +34,10 @@
 		8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BF82897FAF200B4364D /* CreatePersonView.swift */; };
 		8EB23BFB289806EC00B4364D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BFA289806EC00B4364D /* Person.swift */; };
 		8EB23BFD28980E7000B4364D /* CreatePersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */; };
+		8EB23C0128995DAD00B4364D /* CartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C0028995DAD00B4364D /* CartIconView.swift */; };
+		8EB23C03289A68C500B4364D /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C02289A68C500B4364D /* CheckoutView.swift */; };
+		8EB23C05289A691300B4364D /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C04289A691300B4364D /* CheckoutViewModel.swift */; };
+		8EB23C07289A6CDD00B4364D /* Delivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C06289A6CDD00B4364D /* Delivery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		8EB23BF82897FAF200B4364D /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
 		8EB23BFA289806EC00B4364D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewModel.swift; sourceTree = "<group>"; };
+		8EB23C0028995DAD00B4364D /* CartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartIconView.swift; sourceTree = "<group>"; };
+		8EB23C02289A68C500B4364D /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		8EB23C04289A691300B4364D /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		8EB23C06289A6CDD00B4364D /* Delivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delivery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,8 @@
 		8E1EBC0228901C2400A65F8D /* ShopExample */ = {
 			isa = PBXGroup;
 			children = (
-				8E1EBC152890211500A65F8D /* Model */,
 				8E1EBC0328901C2400A65F8D /* ShopExampleApp.swift */,
+				8E1EBC152890211500A65F8D /* Model */,
 				8E65BE8E2892F87D0052DA62 /* Servises */,
 				8E1EBC1228901C7C00A65F8D /* ViewModels */,
 				8E1EBC1128901C7400A65F8D /* Views */,
@@ -130,6 +138,8 @@
 				8EB23BF22897C61E00B4364D /* ProfileView.swift */,
 				8EB23BF42897F73A00B4364D /* ButtonCartView.swift */,
 				8EB23BF82897FAF200B4364D /* CreatePersonView.swift */,
+				8EB23C0028995DAD00B4364D /* CartIconView.swift */,
+				8EB23C02289A68C500B4364D /* CheckoutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +154,7 @@
 				8EB23BEE289686A800B4364D /* CartViewModel.swift */,
 				8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */,
 				8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */,
+				8EB23C04289A691300B4364D /* CheckoutViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -154,6 +165,7 @@
 				8E1EBC162890212A00A65F8D /* Product.swift */,
 				8E65BE91289301150052DA62 /* Block.swift */,
 				8EB23BFA289806EC00B4364D /* Person.swift */,
+				8EB23C06289A6CDD00B4364D /* Delivery.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB23C05289A691300B4364D /* CheckoutViewModel.swift in Sources */,
 				8EB23BED2896839100B4364D /* StorageManager.swift in Sources */,
 				8E65BEA82895BC830052DA62 /* ImageView.swift in Sources */,
 				8E1EBC19289025AB00A65F8D /* ShopboardViewModel.swift in Sources */,
@@ -246,6 +259,7 @@
 				8E1EBC0628901C2400A65F8D /* MainView.swift in Sources */,
 				8EB23BFB289806EC00B4364D /* Person.swift in Sources */,
 				8EB23BEF289686A800B4364D /* CartViewModel.swift in Sources */,
+				8EB23C03289A68C500B4364D /* CheckoutView.swift in Sources */,
 				8EB23BF92897FAF200B4364D /* CreatePersonView.swift in Sources */,
 				8E65BEA22895B4C30052DA62 /* ProductView.swift in Sources */,
 				8E65BEA42895B4D30052DA62 /* ProductViewModel.swift in Sources */,
@@ -259,6 +273,8 @@
 				8EB23BF12896C4A200B4364D /* CartRowView.swift in Sources */,
 				8E65BE92289301150052DA62 /* Block.swift in Sources */,
 				8E65BEA62895BBC50052DA62 /* ImageViewModel.swift in Sources */,
+				8EB23C0128995DAD00B4364D /* CartIconView.swift in Sources */,
+				8EB23C07289A6CDD00B4364D /* Delivery.swift in Sources */,
 				8EB23BF72897F7CC00B4364D /* ProfileViewModel.swift in Sources */,
 				8EB23BEB28967A4300B4364D /* CartView.swift in Sources */,
 				8E65BE9A28930D2A0052DA62 /* ShopboardView.swift in Sources */,
