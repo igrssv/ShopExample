@@ -18,7 +18,7 @@ class CartViewModel: ObservableObject {
     
     @Published var finalPrice: Double = 0
    
-    var person: Person?
+    @Published var person: Person?
     
         
     func fetch() {

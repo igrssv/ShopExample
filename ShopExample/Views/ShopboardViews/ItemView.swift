@@ -11,29 +11,27 @@ struct ItemView: View {
     @StateObject  var vm: ItemViewModel
 
     var body: some View {
-        VStack(alignment: .leading)  {
-            ImageView(vm: ImageViewModel(imageURL: vm.product.image))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150, height: 150)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .scale(1.1)
-                        .foregroundColor(Color("BGImage"))
-                        
-                )
-            Text(vm.product.title)
-                .font(.title2)
-                .minimumScaleFactor(0.7)
-            Text("\(String(vm.product.price)) $")
-                .font(.headline)
-        }
-        .frame(width: 150, height: 200)
-        .onTapGesture {
-            vm.show()
-        }
-        .sheet(isPresented: $vm.isShow) {
+        NavigationLink(destination: {
             ProductView(vm: ProductViewModel(product: vm.product))
-        }
+        }, label: {
+            VStack(alignment: .leading)  {
+                ImageView(vm: ImageViewModel(imageURL: vm.product.image))
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 150)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .scale(1.1)
+                            .foregroundColor(Color("BGImage"))
+                    )
+                Text(vm.product.title)
+                    .font(.title2)
+                    .minimumScaleFactor(0.7)
+                Text("\(String(vm.product.price)) $")
+                    .font(.headline)
+            }
+            .foregroundColor(.black)
+            .frame(width: 150, height: 200)
+        })
     }
 }
 

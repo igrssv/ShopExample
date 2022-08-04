@@ -13,7 +13,6 @@ struct CheckoutView: View {
     var body: some View {
         HStack {
             VStack {
-                    
                 if vm.cartVM.person != nil {
                         VStack {
                             HStack {
@@ -46,12 +45,10 @@ struct CheckoutView: View {
                             Spacer()
                             ButtonCartView(titel: "Pay orders")
                         }
-                    } else {
-                        ProfileView()
                     }
             }
         }.onAppear {
-            if vm.person == nil {
+            if vm.cartVM.person == nil {
                 selectedTab = "Cart"
             }
         }
