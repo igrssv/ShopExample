@@ -16,7 +16,7 @@ class ProductViewModel: ObservableObject {
     }
     
     func buyProduct() {
-        StorageManager.shared.saveProduct(product: product)
+        StorageManager.shared.saveSet(item: product, key: .keyProduct)
         StorageManager.shared.load(key: .keyProduct) { (value: [Product]) in
             self.currentProducttoCart = String(value.filter({$0.id == product.id}).count)
         }

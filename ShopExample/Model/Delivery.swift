@@ -8,19 +8,20 @@
 import Foundation
 
 struct Delivery: Encodable, Decodable {
+    var id = UUID()
     let person: Person
     let products: [Product]
     let address: Address
     var status: StatusDelivery
-    
+    let date: Date
 }
 
-enum StatusDelivery: Encodable, Decodable {
-    case created
-    case buildStarted
-    case assembled
-    case shippedFromWarehouse
-    case courier
-    case ready
+enum StatusDelivery: String, Encodable, Decodable {
+    case created = "Created"
+    case buildStarted = "Build Started"
+    case assembled = "Assembled"
+    case shippedFromWarehouse = "Shipped from ware house"
+    case courier = "Courier"
+    case ready = "Ready"
 }
 

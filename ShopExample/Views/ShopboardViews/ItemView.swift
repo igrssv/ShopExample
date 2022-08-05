@@ -14,7 +14,7 @@ struct ItemView: View {
         NavigationLink(destination: {
             ProductView(vm: ProductViewModel(product: vm.product))
         }, label: {
-            VStack(alignment: .leading)  {
+            VStack(alignment: .leading) {
                 ImageView(vm: ImageViewModel(imageURL: vm.product.image))
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 150, height: 150)
@@ -36,7 +36,6 @@ struct ItemView: View {
 }
 
 struct ItemView_Previews: PreviewProvider {
-    
     
     static var previews: some View {
         ItemView(vm: ItemViewModel(product: Product.fetchOneProduct()))

@@ -57,7 +57,11 @@ struct AuthorizedUserView: View {
             Divider()
             ScrollView(showsIndicators: false) {
                 ButtonCartView(titel: "Orders")
-                ButtonCartView(titel: "Delivery")
+                NavigationLink {
+                    DeliveryView()
+                } label: {
+                    ButtonCartView(titel: "Delivery")
+                }
                 ButtonCartView(titel: "Address")
                 ButtonCartView(titel: "Complain")
                 ButtonCartView(titel: "About the application")

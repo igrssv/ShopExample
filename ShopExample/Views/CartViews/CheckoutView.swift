@@ -44,6 +44,9 @@ struct CheckoutView: View {
                             }
                             Spacer()
                             ButtonCartView(titel: "Pay orders")
+                                .onTapGesture {
+                                    vm.arrangeDelivery()
+                                }
                         }
                     }
             }

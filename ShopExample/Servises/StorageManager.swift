@@ -11,7 +11,7 @@ enum Keys: String {
     case keyProduct = "products"
     case keyPerson = "user"
     case keyAddress = "address"
-    case keyDelevery = "delevery"
+    case keyDelivery = "delivery"
 }
 
 class StorageManager {
@@ -23,13 +23,13 @@ class StorageManager {
 
 extension StorageManager {
     
-    func saveProduct(product: Product) {
-        var products: [Product] = []
-        load(key: .keyProduct) { (value: [Product]) in
-            products = value
+    func saveSet<T: Encodable & Decodable>(item: T, key: Keys) {
+        var sets: [T] = []
+        load(key: .keyProduct) { (value: [T]) in
+            sets = value
         }
-        products.append(product)
-        saveData(saveData: products, key: Keys.keyProduct)
+        sets.append(item)
+        saveData(saveData: sets, key: key)
     }
     
     func saveData<T: Encodable & Decodable>(saveData: T, key: Keys) {
