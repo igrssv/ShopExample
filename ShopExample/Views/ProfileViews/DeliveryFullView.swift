@@ -29,16 +29,15 @@ struct DeliveryFullView: View {
                         ScrollView(.horizontal) {
                             HStack {
                                 ForEach(item.products, id:\.id) { product in
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(Color("BGImage"))
-                                        .overlay(content: {
-                                            RoundedRectangle(cornerRadius: 10)
-                                            .stroke()})
-                                        .overlay {
-                                            ImageView(vm: ImageViewModel(imageURL: product.image))
-                                                .aspectRatio(contentMode: .fit)
-                                            .frame(width: 90)}
+                                    VStack {
+                                        ImageView(vm: ImageViewModel(imageURL: product.image))
+                                            .aspectRatio(contentMode: .fit)
+                                    }
+                                    .frame(width: 100, height: 100)
+                                    .background(Color("BGImage"))
+                                    .cornerRadius(20)
+                                    .shadow(radius: 5)
+                                    .padding(10)
                                 }
                             }
                         }

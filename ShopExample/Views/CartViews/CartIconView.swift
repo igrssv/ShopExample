@@ -16,7 +16,7 @@ struct CartIconView: View {
                  "Cart" :
                     "\(vm.products.count)")
         }
-        .animation(.default, value: vm.product.count)
+        .animation(.default, value: vm.products.count)
     }
     
     struct CartIconView_Previews: PreviewProvider {
