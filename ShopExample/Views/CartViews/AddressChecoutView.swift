@@ -17,42 +17,39 @@ struct AddressChecoutView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(vm.address, id:\.addres, content: { addres in
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke()
-                            )
-                            .overlay(
-                                VStack(alignment: .leading) {
-                                    Text(addres.city)
-                                        .font(.title2)
-                                        .bold()
-                                    Text("Addres:")
-                                        .font(.subheadline)
-                                        .bold()
-                                    Text(addres.addres)
-                                        .font(.subheadline)
-                                        .minimumScaleFactor(0.6)
-                                }
-                                    .foregroundColor(.black)
-                                    .padding(10)
-                            )
+                        VStack(alignment: .leading) {
+                            Text(addres.city)
+                                .font(.title2)
+                                .bold()
+                            Text("Addres:")
+                                .font(.subheadline)
+                                .bold()
+                            Text(addres.addres)
+                                .font(.subheadline)
+                                .minimumScaleFactor(0.6)
+                            Text(addres.home)
+                                .font(.subheadline)
+                                .minimumScaleFactor(0.6)
+                            }
+                        .frame(width: 120, height: 100, alignment: .topLeading)
+                        .padding()
+                        .background(Color("BGDeliveryCard"))
+                        .cornerRadius(20)
                     })
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 150, height: 150)
-                        .foregroundColor(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke()
-                        )
-                        .overlay(
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .scaleEffect(0.4)
-                        )
+                    VStack(alignment: .leading) {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .scaleEffect(0.4)
+                            .foregroundColor(.blue)
+                        }
+                    .frame(width: 120, height: 100, alignment: .center)
+                    .padding()
+                    .background(Color("BGDeliveryCard"))
+                    .cornerRadius(20)
+                    
+                    
+                        
                 }
                 .padding(.horizontal)
                 
