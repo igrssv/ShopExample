@@ -9,7 +9,6 @@ import Foundation
 
 class DeliveryViewModel: ObservableObject {
     @Published var delivery: [Delivery] = []
-    @Published var test = false
     @Published var deliverySample: [Delivery] = [
         Delivery(person: Person.tempPerson(), products: [Product.fetchOneProduct()], address: Address.tempAddress(), status: .created, date: Date())]
     
@@ -21,22 +20,8 @@ class DeliveryViewModel: ObservableObject {
         var delivery: [Delivery] = []
         StorageManager.shared.load(key: .keyDelivery) { (value : [Delivery]) in
             delivery = value
-            print("delivery value: \(value.count)")
         }
-        print("Delevery count: \(delivery.count)")
-        self.delivery = delivery
+        self.delivery = delivery.sorted(by: {$0.date > $1.date})
     }
-    
-    func del(index: IndexSet) {
-        StorageManager.shared.deleteObject(index: index, key: .keyDelivery)
-        fetchDelivery()
-    }
-    
-    func clear() {
-        StorageManager.shared.clear(key: .keyDelivery)
-        fetchDelivery()
-    }
-    func tests() {
-        test.toggle()
-    }
+
 }

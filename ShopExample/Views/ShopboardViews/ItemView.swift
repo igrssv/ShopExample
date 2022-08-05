@@ -23,14 +23,18 @@ struct ItemView: View {
                             .scale(1.1)
                             .foregroundColor(Color("BGImage"))
                     )
+                    .padding(.bottom, 10)
                 Text(vm.product.title)
                     .font(.title2)
                     .minimumScaleFactor(0.7)
                 Text("\(String(vm.product.price)) $")
                     .font(.headline)
             }
-            .foregroundColor(.black)
-            .frame(width: 150, height: 200)
+            .foregroundColor(Color("titel"))
+            .padding()
+            .background(Color("BGDeliveryCard"))
+            .frame(width: 170, height: 230)
+            .cornerRadius(20)
         })
     }
 }
@@ -39,6 +43,6 @@ struct ItemView_Previews: PreviewProvider {
     
     static var previews: some View {
         ItemView(vm: ItemViewModel(product: Product.fetchOneProduct()))
-            .preferredColorScheme(.dark)
+            
     }
 }

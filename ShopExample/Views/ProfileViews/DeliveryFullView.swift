@@ -64,9 +64,6 @@ struct DeliveryFullView: View {
                     .shadow(radius: 20)
                     .padding()
                 }
-                .onDelete(perform: { index in
-                    vm.del(index: index)
-                })
                 .padding(.top)
             }
         }
