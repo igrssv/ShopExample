@@ -26,23 +26,14 @@ class CheckoutViewModel: ObservableObject {
             address = value
         }
     }
-    
-    let personSample = Person(
-        name: "Igor",
-        lastName: "Sysoev",
-        phone: "+79999889988",
-        email: "igrssv@ya.ru")
-    
-  
+
     func arrangeDelivery() {
-        var deleverySet: [Delivery] = []
         let delivery = Delivery(
             person: person ?? Person.tempPerson(),
             products: cartVM.products,
             address: address[0],
             status: .created,
             date: Date())
-        deleverySet.append(delivery)
         
         StorageManager.shared.saveSet(item: delivery, key: .keyDelivery)
         StorageManager.shared.clear(key: .keyProduct)

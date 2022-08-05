@@ -14,7 +14,7 @@ class CartViewModel: ObservableObject {
         }
     }
     
-    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
+//    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
     
     @Published var finalPrice: Double = 0
    
@@ -30,13 +30,12 @@ class CartViewModel: ObservableObject {
         fetchPerson()
     }
     func fetchPerson() {
-        
         StorageManager.shared.load(key: .keyPerson) { (value: Person) in
             self.person = value
         }
     }
     func deleteProduct(index: IndexSet) {
-        StorageManager.shared.deleteProduct(index: index, key: .keyProduct)
+        StorageManager.shared.deleteObject(index: index, key: .keyProduct)
         fetch()
     }
     

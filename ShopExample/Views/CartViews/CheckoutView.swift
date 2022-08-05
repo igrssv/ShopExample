@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CheckoutView: View {
     @StateObject var vm: CheckoutViewModel
+    @Environment(\.presentationMode) var presentation
+    
     @Binding var selectedTab: String
     var body: some View {
         HStack {
@@ -46,6 +48,7 @@ struct CheckoutView: View {
                             ButtonCartView(titel: "Pay orders")
                                 .onTapGesture {
                                     vm.arrangeDelivery()
+                                    self.presentation.wrappedValue.dismiss()
                                 }
                         }
                     }

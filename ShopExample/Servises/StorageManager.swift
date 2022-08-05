@@ -22,16 +22,16 @@ class StorageManager {
 }
 
 extension StorageManager {
-    
+    //MARK: - Save sets object
     func saveSet<T: Encodable & Decodable>(item: T, key: Keys) {
         var sets: [T] = []
-        load(key: .keyProduct) { (value: [T]) in
+        load(key: key) { (value: [T]) in
             sets = value
         }
         sets.append(item)
         saveData(saveData: sets, key: key)
     }
-    
+    //MARK: - Save first object
     func saveData<T: Encodable & Decodable>(saveData: T, key: Keys) {
         let encoder = JSONEncoder()
         do {
@@ -41,15 +41,15 @@ extension StorageManager {
             print(error)
         }
     }
-    
+    //MARK: - Save Data
     func save(data: Data, key: String) {
         UserDefaults.standard.set(data, forKey: key)
     }
-    
+    //MARK: - Clear Data
     func clear(key: Keys) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
-    
+    //MARK: - Load Data
     func load<T: Encodable & Decodable>(key: Keys, compliction: (T) -> ())  {
         let date = UserDefaults.standard.data(forKey: key.rawValue) ?? Data()
         let decode = JSONDecoder()
@@ -61,8 +61,8 @@ extension StorageManager {
             print(error)
         }
     }
-    
-    func deleteProduct(index: IndexSet, key: Keys) {
+    //MARK: - Delete one object
+    func deleteObject(index: IndexSet, key: Keys) {
         var data: [Product] = []
         load(key: key) { (value: [Product]) in
             data = value
