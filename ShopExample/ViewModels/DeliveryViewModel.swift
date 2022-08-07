@@ -21,7 +21,7 @@ class DeliveryViewModel: ObservableObject {
         StorageManager.shared.load(key: .keyDelivery) { (value : [Delivery]) in
             delivery = value
         }
-        self.delivery = delivery.sorted(by: {$0.date > $1.date})
+        self.delivery = delivery.sorted(by: {$0.date > $1.date}).filter({$0.status != StatusDelivery.ready})
     }
 
 }
