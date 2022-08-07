@@ -26,6 +26,39 @@ struct ShopboardView: View {
                     .padding()
                 }
                 .navigationTitle("My Shop")
+                .toolbar {
+                    if vm.currenCategory.isEmpty {
+                        Menu {
+                            ForEach(vm.products, id: \.id) { item in
+                                Button(action: {vm.filter(titel: item.category)}) {
+                                    Text(item.category)
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "slider.vertical.3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)
+                            
+                    }
+                    } else {
+                        Button(action: {vm.clearFilter()}) {
+                            HStack {
+                                Text("vm.currenCategory")
+                                    .font(.title3)
+                                Image(systemName: "clear.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            }
+                            .padding(8)
+                            .foregroundColor(.white)
+                            .background(.blue)
+                            .cornerRadius(10)
+                        }
+                    }
+                    
+                }
+                
             }
         }
         
