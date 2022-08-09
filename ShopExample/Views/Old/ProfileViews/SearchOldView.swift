@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct SearchOldView: View {
     @StateObject var vm: ShopboardViewModel
     
     @Namespace var namespace
@@ -40,9 +40,9 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
+struct SearchOldView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(vm: ShopboardViewModel())
+        SearchOldView(vm: ShopboardViewModel())
     }
 }
 

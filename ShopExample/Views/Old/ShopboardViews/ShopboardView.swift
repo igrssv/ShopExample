@@ -16,7 +16,7 @@ struct ShopboardView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchView(vm: vm)
+                SearchOldView(vm: vm)
                 ScrollView {
                     VStack {
                         BlockView(blocks: $vm.blocks)
