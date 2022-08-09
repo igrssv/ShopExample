@@ -10,7 +10,10 @@ import Foundation
 class ShopboardViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var blocks: [Block] = Block.createSampleBlocks()
+    @Published var showType: ShowShowSearchType = .defaults
+    @Published var search = ""
     @Published var currenCategory = ""
+    
     init() {
         fetch()
     }
@@ -23,10 +26,13 @@ class ShopboardViewModel: ObservableObject {
     func filter(titel: String) {
         currenCategory = titel
         products = products.filter({$0.category == currenCategory})
+        showType = .defaults
+        
     }
     
     func clearFilter() {
         currenCategory = ""
+        
         fetch()
     }
 }

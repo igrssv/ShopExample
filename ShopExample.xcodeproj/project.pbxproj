@@ -47,6 +47,7 @@
 		8EB23C14289ABF4900B4364D /* NoAuthorizedUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C13289ABF4900B4364D /* NoAuthorizedUserView.swift */; };
 		8EB23C16289AC58800B4364D /* AddressChecoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C15289AC58800B4364D /* AddressChecoutView.swift */; };
 		8EB23C18289ACA2500B4364D /* CartGoodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23C17289ACA2500B4364D /* CartGoodsView.swift */; };
+		8EC1FAD428A17E9F00D1DB28 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1FAD328A17E9F00D1DB28 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		8EB23C13289ABF4900B4364D /* NoAuthorizedUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAuthorizedUserView.swift; sourceTree = "<group>"; };
 		8EB23C15289AC58800B4364D /* AddressChecoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressChecoutView.swift; sourceTree = "<group>"; };
 		8EB23C17289ACA2500B4364D /* CartGoodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartGoodsView.swift; sourceTree = "<group>"; };
+		8EC1FAD328A17E9F00D1DB28 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				8EB23C13289ABF4900B4364D /* NoAuthorizedUserView.swift */,
 				8E5513E5289BBB42002195EB /* DeliveryView.swift */,
 				8E72A0A1289D4FA500C154B8 /* DeliveryFullView.swift */,
+				8EC1FAD328A17E9F00D1DB28 /* SearchView.swift */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				8EB23C18289ACA2500B4364D /* CartGoodsView.swift in Sources */,
 				8EB23BF32897C61E00B4364D /* ProfileView.swift in Sources */,
 				8EB23C14289ABF4900B4364D /* NoAuthorizedUserView.swift in Sources */,
+				8EC1FAD428A17E9F00D1DB28 /* SearchView.swift in Sources */,
 				8E65BE962893023E0052DA62 /* BlockView.swift in Sources */,
 				8E1EBC0428901C2400A65F8D /* ShopExampleApp.swift in Sources */,
 				8EB23BF12896C4A200B4364D /* CartRowView.swift in Sources */,
