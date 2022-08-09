@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainViewOld: View {
     @State private var selectedTab = ""
 
     var body: some View {
@@ -37,9 +37,9 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct MainViewOld_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainViewOld()
             .preferredColorScheme(.light)
     }
 }
