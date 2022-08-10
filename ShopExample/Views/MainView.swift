@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var isShow = false
+    @Namespace private var namespace
+    @StateObject private var vm = MainViewModel()
+    
+    @State private var selected: Images = data[0]
+    
     var body: some View {
-            VStack {
-                ToolbarView()
-                ItemCategoryView()
-                SearchView()
+        ZStack {
+            if vm.setCategory == nil{
+                VStack {
+                    ToolbarView()
+                    ItemCategoryView(namecpace: namespace, vm: vm)
+                    SearchView()
+                }
+            } else {
+                DetatilCategoryView(namecpace: namespace, vm: vm)
             }
+            
+        }
     }
 }
 

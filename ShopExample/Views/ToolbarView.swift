@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ToolbarView: View {
+    
     var body: some View {
         HStack {
             Image(systemName: "suitcase.cart")
@@ -22,8 +23,6 @@ struct ToolbarView: View {
         .background(.white.opacity(0.1))
         .frame(height: 40)
         .frame(maxWidth: .infinity)
-        
-        
     }
 }
 

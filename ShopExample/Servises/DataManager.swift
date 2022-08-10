@@ -12,5 +12,6 @@ class DataManager {
 
     let image = ["addidas", "nike", "nb"]
     let name = ["Addidas", "Nike", "New Balance"]
+    let category = ["men's clothing", "electronics", "jewelery", "women's clothing"]
     
 }

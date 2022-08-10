@@ -18,7 +18,7 @@ class ShopboardViewModel: ObservableObject {
         fetch()
     }
     func fetch() {
-        NetworkManager.shared.fetchProducts { products in
+        NetworkManager.shared.fetchProducts(URLs: .products) { products in
             self.products = products
         }
     }

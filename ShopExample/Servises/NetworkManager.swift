@@ -7,15 +7,18 @@
 
 import Foundation
 
+enum URLs: String {
+    case products = "https://fakestoreapi.com/products"
+    case categories = "https://fakestoreapi.com/products/categories"
+}
+
 class NetworkManager {
     static var shared = NetworkManager()
     
     private init() {}
     
-    func fetchProducts(completion: @escaping ([Product]) -> Void){
-        var products: [Product] = []
-        let urlString = "https://fakestoreapi.com/products"
-        guard let url = URL(string: urlString) else { return }
+    func fetchProducts<T: Encodable & Decodable>(URLs: URLs,completion: @escaping (T) -> Void){
+        guard let url = URL(string: URLs.rawValue) else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print(error)
@@ -24,7 +27,8 @@ class NetworkManager {
                 return
             }
             do {
-                products = try JSONDecoder().decode([Product].self, from: data)
+                var products: T
+                products = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(products)
                 }
@@ -47,6 +51,5 @@ class NetworkManager {
                 completion(data, response)
             }
         }.resume()
-        
     }
 }

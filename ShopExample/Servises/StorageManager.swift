@@ -71,3 +71,19 @@ extension StorageManager {
         saveData(saveData: data, key: key)
     }
 }
+
+    //MARK: - Load category
+extension StorageManager {
+    func loadCategories() -> [Category] {
+        var categories: [Category] = []
+        let dataManager = DataManager.shared.category
+        
+        for item in dataManager {
+            let category = Category(titel: item, image: item)
+            categories.append(category)
+        }
+        
+        return categories
+    }
+    
+}

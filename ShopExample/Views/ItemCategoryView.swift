@@ -8,41 +8,59 @@
 import SwiftUI
 
 struct ItemCategoryView: View {
-    let images = ["electronics", "jewelery" , "men's clothing", "women's clothing"]
+    var namecpace: Namespace.ID
+    @ObservedObject var vm: MainViewModel
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(images, id:\.self) { item in
-                VStack {
-                    Image(item)
+            
+            ForEach(vm.categories, id:\.id) { item in
+                ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
+                    Image(item.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .overlay {
-                            VStack {
-                                Spacer()
-                                HStack{
-                                    Text(item.capitalized)
-                                        .font(.largeTitle)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom)
-                            }
-                            
-                        }
+                        .frame(height: 180)
+                        .cornerRadius(20)
+                        .matchedGeometryEffect(id: item.image, in: namecpace)
+                    VStack(alignment: .leading) {
+                        Text(item.titel.capitalized)
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .matchedGeometryEffect(id: "titel \(item.titel)", in: namecpace)
+                    }
+                    .padding()
+                        
                 }
-                .frame(height: 188)
-                .frame(maxWidth: .infinity)
-                .cornerRadius(20)
                 .padding()
+                .onTapGesture {
+                    withAnimation(.spring(response: 0.8, dampingFraction: 0.6)) {
+                        vm.selectedCategory(category: item)
+                    }
+                    
+                }
             }
         }
+        
         
     }
 }
 
 struct ItemCategoryView_Previews: PreviewProvider {
+    @Namespace static private var namespace
     static var previews: some View {
-        ItemCategoryView()
+        ItemCategoryView(namecpace: namespace, vm: MainViewModel())
     }
 }
+
+
+struct Images {
+    var id = UUID()
+    var img: String
+    var name: String
+}
+
+
+var data = [Images(img: "men's clothing", name: "men's clothing"),
+              Images(img: "electronics", name: "electronics"),
+              Images(img: "jewelery", name: "jewelery"),
+              Images(img: "women's clothing", name: "women's clothing")]
