@@ -31,7 +31,6 @@ class NetworkManager {
             do {
                  
                 products = try JSONDecoder().decode([Product].self, from: data)
-                print("NTM")
                 DispatchQueue.main.async {
                     completion(products)
                 }
@@ -44,7 +43,7 @@ class NetworkManager {
     func fetchProduct(url: URL, completion: @escaping ((Data, URLResponse) -> Void)) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, let response = response else {
-                print(error ?? "No data")
+                print(error)
                 return
             }
             

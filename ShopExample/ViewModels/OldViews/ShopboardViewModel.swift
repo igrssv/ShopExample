@@ -15,7 +15,7 @@ class ShopboardViewModel: ObservableObject {
     @Published var currenCategory = ""
     @Published var productsnUI: [Product] = []
     @Published var category = ""
-    @Published var  isLoad = true
+    
     
     init(category: String) {
         self.category = category
@@ -25,7 +25,6 @@ class ShopboardViewModel: ObservableObject {
     func fetch() {
         NetworkManager.shared.fetchProducts(URLs: "https://fakestoreapi.com/products") { products in
             self.products = products.filter({$0.category == self.category})
-            self.isLoad = false
             
         }
     }
@@ -34,11 +33,8 @@ class ShopboardViewModel: ObservableObject {
         var products: [Product] = []
         NetworkManager.shared.fetchProducts(URLs: "https://fakestoreapi.com/products/category/\(category)") { (value: [Product]) in
             products = value
-            print(self.category)
         }
-        print("fethUI")
         self.productsnUI = products
-        print(productsnUI.count)
     }
     
     func fetchnUI() {
@@ -47,7 +43,6 @@ class ShopboardViewModel: ObservableObject {
     
     func filter(titel: String) {
         currenCategory = titel
-        print("filltter: \(category)")
         products = products.filter({$0.category == category})
         showType = .defaults
         

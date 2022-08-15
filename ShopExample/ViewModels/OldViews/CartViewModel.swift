@@ -13,9 +13,7 @@ class CartViewModel: ObservableObject {
             calculation()
         }
     }
-    
-//    let product = [Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct(), Product.fetchOneProduct()]
-    
+        
     @Published var finalPrice: Double = 0
    
     @Published var person: Person?
