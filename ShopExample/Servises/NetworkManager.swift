@@ -9,7 +9,7 @@ import Foundation
 
 enum URLs: String {
     case products = "https://fakestoreapi.com/products"
-    case categories = "https://fakestoreapi.com/products/categories"
+    case categories = "user"
 }
 
 class NetworkManager {
@@ -17,8 +17,10 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchProducts<T: Encodable & Decodable>(URLs: URLs,completion: @escaping (T) -> Void){
-        guard let url = URL(string: URLs.rawValue) else { return }
+    func fetchProducts(URLs: String, completion: @escaping ([Product]) -> Void){
+        var products: [Product] = []
+        let urlString = URLs
+        guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print(error)
@@ -27,8 +29,9 @@ class NetworkManager {
                 return
             }
             do {
-                var products: T
-                products = try JSONDecoder().decode(T.self, from: data)
+                 
+                products = try JSONDecoder().decode([Product].self, from: data)
+                print("NTM")
                 DispatchQueue.main.async {
                     completion(products)
                 }

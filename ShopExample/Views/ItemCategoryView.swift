@@ -10,9 +10,8 @@ import SwiftUI
 struct ItemCategoryView: View {
     var namecpace: Namespace.ID
     @ObservedObject var vm: MainViewModel
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            
             ForEach(vm.categories, id:\.id) { item in
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
                     Image(item.image)
@@ -33,13 +32,14 @@ struct ItemCategoryView: View {
                 }
                 .padding()
                 .onTapGesture {
-                    withAnimation(.spring(response: 0.8, dampingFraction: 0.6)) {
-                        vm.selectedCategory(category: item)
+                    withAnimation(.interactiveSpring(response: 0.2, dampingFraction: 0.8, blendDuration: 0.3)) {
+                            vm.selectedCategory(category: item)
                     }
                     
                 }
             }
-        }
+            
+        
         
         
     }

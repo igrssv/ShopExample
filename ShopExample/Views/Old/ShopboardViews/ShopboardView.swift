@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ShopboardView: View {
-    @StateObject private var vm = ShopboardViewModel()
+//    @StateObject private var vm = ShopboardViewModel()
+    @StateObject private var vm = ShopboardViewModel(category: "")
+
     let gridItems = [
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20),
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20)

@@ -8,25 +8,42 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var isShow = false
     @Namespace private var namespace
     @StateObject private var vm = MainViewModel()
-    
-    @State private var selected: Images = data[0]
-    
+        
     var body: some View {
-        ZStack {
-            if vm.setCategory == nil{
-                VStack {
-                    ToolbarView()
-                    ItemCategoryView(namecpace: namespace, vm: vm)
-                    SearchView()
-                }
+        ZStack(alignment: .bottom) {
+            if !vm.isShow{
+                    VStack {
+                        HStack {
+                            Text("Tony Stark")
+                                .font(.largeTitle)
+                                .bold()
+                                .minimumScaleFactor(0.6)
+                            Spacer()
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30)
+                                .clipShape(Circle())
+                        }
+                        .padding(.horizontal)
+                        .onTapGesture {
+                            
+                        }
+                        ScrollView(.vertical, showsIndicators: false)  {
+                            ItemCategoryView(namecpace: namespace, vm: vm)
+                        }
+                    }
+                Spacer(minLength: 60)
+                SearchView()
+                    
             } else {
                 DetatilCategoryView(namecpace: namespace, vm: vm)
             }
             
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 

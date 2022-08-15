@@ -19,6 +19,10 @@ class MainViewModel: ObservableObject {
     
     func selectedCategory(category: Category?) {
         setCategory = category
+        show()
+    }
+    func show() {
+        isShow.toggle()
     }
 
 }

@@ -42,7 +42,7 @@ struct SearchOldView: View {
 
 struct SearchOldView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchOldView(vm: ShopboardViewModel())
+        SearchOldView(vm: ShopboardViewModel(category: ""))
     }
 }
 

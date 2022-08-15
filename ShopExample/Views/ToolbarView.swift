@@ -8,26 +8,24 @@
 import SwiftUI
 
 struct ToolbarView: View {
-    
     var body: some View {
         HStack {
-            Image(systemName: "suitcase.cart")
-                .resizable()
-                .frame(width: 30, height: 30)
             Spacer()
-            Image(systemName: "cart")
-                .resizable()
-                .frame(width: 30, height: 30)
+            Image(systemName: "xmark")
+                .font(.title3)
+                .foregroundColor(.black)
+                .frame(height: 10)
+                .padding()
+                .background(Color("ToolBarButton"))
+                .clipShape(Circle())
         }
-        .padding()
-        .background(.white.opacity(0.1))
-        .frame(height: 40)
-        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 10)
     }
 }
 
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
         ToolbarView()
+            .preferredColorScheme(.dark)
     }
 }

@@ -20,6 +20,7 @@ struct SearchView: View {
             .background(Color("buttonColor"))
             .cornerRadius(20)
             .padding()
+            .padding(.bottom, 10)
     }
     
     private var searchItem: some View  {
@@ -49,9 +50,10 @@ struct SearchView: View {
                     }
                 }
             Spacer()
-            Image(systemName: "person.circle")
+            Image(systemName: "cart.circle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .foregroundColor(.white)
                 .frame(width:!isShowSearch ? 30 : 0)
                 .matchedGeometryEffect(id: "person", in: namespace)
         }

@@ -13,19 +13,42 @@ class ShopboardViewModel: ObservableObject {
     @Published var showType: ShowShowSearchType = .defaults
     @Published var search = ""
     @Published var currenCategory = ""
+    @Published var productsnUI: [Product] = []
+    @Published var category = ""
+    @Published var  isLoad = true
     
-    init() {
+    init(category: String) {
+        self.category = category
         fetch()
+        
     }
     func fetch() {
-        NetworkManager.shared.fetchProducts(URLs: .products) { products in
-            self.products = products
+        NetworkManager.shared.fetchProducts(URLs: "https://fakestoreapi.com/products") { products in
+            self.products = products.filter({$0.category == self.category})
+            self.isLoad = false
+            
         }
+    }
+    
+    func fetchUI() {
+        var products: [Product] = []
+        NetworkManager.shared.fetchProducts(URLs: "https://fakestoreapi.com/products/category/\(category)") { (value: [Product]) in
+            products = value
+            print(self.category)
+        }
+        print("fethUI")
+        self.productsnUI = products
+        print(productsnUI.count)
+    }
+    
+    func fetchnUI() {
+        
     }
     
     func filter(titel: String) {
         currenCategory = titel
-        products = products.filter({$0.category == currenCategory})
+        print("filltter: \(category)")
+        products = products.filter({$0.category == category})
         showType = .defaults
         
     }
