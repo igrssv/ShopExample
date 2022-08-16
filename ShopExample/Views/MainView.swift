@@ -43,7 +43,7 @@ struct MainView: View {
             }
             
         }
-        .ignoresSafeArea(edges: .bottom)
+        
     }
 }
 

@@ -34,7 +34,6 @@ class ShopboardViewModel: ObservableObject {
         var products: [Product] = []
         NetworkManager.shared.fetchProducts(URLs: "https://fakestoreapi.com/products/category/\(category)") { (value: [Product]) in
             products = value
-            print(self.category)
         }
         self.productsnUI = products
     }

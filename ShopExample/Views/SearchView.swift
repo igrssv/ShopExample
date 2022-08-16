@@ -11,6 +11,8 @@ struct SearchView: View {
     @State private var search = ""
     @State private var isShowSearch = false
     @Namespace private var namespace
+    @State private var isShow = false
+    @State private var tab = ""
     var body: some View {
             VStack {
                 searchItem
@@ -55,7 +57,15 @@ struct SearchView: View {
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.white)
                 .frame(width:!isShowSearch ? 30 : 0)
-                .matchedGeometryEffect(id: "person", in: namespace)
+                .matchedGeometryEffect(id: "cart", in: namespace)
+                .sheet(isPresented: $isShow, content: {
+                    CartView(selectedTab: $tab)
+                })
+                .onTapGesture {
+                    if !isShowSearch {
+                        isShow.toggle()
+                    }
+                }
         }
         .padding(.horizontal, 10)
     }
