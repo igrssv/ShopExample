@@ -13,25 +13,34 @@ struct ItemProductView: View {
         VStack {
             ImageView(vm: ImageViewModel(imageURL: vm.product.image))
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 160, height: 200)
+                .frame(width: 150, height: 170)
+                .padding(10)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-            
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color("BGImage"))
+                        .shadow(color: .gray, radius: 4)
+                )
+                .padding(.bottom, 10)
             Text(vm.product.title)
                 .bold()
+                .frame(height: 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            HStack(alignment: .bottom) {
+            HStack {
                 Text("\(String(vm.product.price)) $")
                 Spacer()
                 Image(systemName: "plus.app")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding([.leading])
+                    .foregroundColor(Color("buttonColor"))
+                    .frame(width: 20, height: 20)
+                    .padding(.leading, 10)
             }
+            .frame(height: 20)
             .frame(maxWidth: .infinity, alignment: .leading)
-            
         }
-        .frame(width: 170, height: 250)
-        
+        .frame(width: 160)
+        .padding(10)
     }
 }
 
