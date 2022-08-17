@@ -58,6 +58,7 @@
 		8EC1FADB28A2E2E800D1DB28 /* ItemCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1FADA28A2E2E800D1DB28 /* ItemCategoryView.swift */; };
 		8EC1FADE28A2EB3400D1DB28 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1FADD28A2EB3400D1DB28 /* ToolbarView.swift */; };
 		8EC1FAE028A2EE0700D1DB28 /* DetatilCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1FADF28A2EE0700D1DB28 /* DetatilCategoryView.swift */; };
+		8ED5E8F928AD313E0051E24D /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E8F828AD313E0051E24D /* CartItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		8EC1FADA28A2E2E800D1DB28 /* ItemCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategoryView.swift; sourceTree = "<group>"; };
 		8EC1FADD28A2EB3400D1DB28 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		8EC1FADF28A2EE0700D1DB28 /* DetatilCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetatilCategoryView.swift; sourceTree = "<group>"; };
+		8ED5E8F828AD313E0051E24D /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				8E5D950628A4337F009BC28D /* ProductsListView.swift */,
 				8E5D950828A43624009BC28D /* DetailProductView.swift */,
 				8E5D950A28A43640009BC28D /* ItemProductView.swift */,
+				8ED5E8F828AD313E0051E24D /* CartItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				8EB23C05289A691300B4364D /* CheckoutViewModel.swift in Sources */,
 				8EB23BED2896839100B4364D /* StorageManager.swift in Sources */,
 				8E65BEA82895BC830052DA62 /* ImageView.swift in Sources */,
+				8ED5E8F928AD313E0051E24D /* CartItemView.swift in Sources */,
 				8EB23C16289AC58800B4364D /* AddressChecoutView.swift in Sources */,
 				8E1EBC19289025AB00A65F8D /* ShopboardViewModel.swift in Sources */,
 				8E65BE902892F88F0052DA62 /* DataManager.swift in Sources */,
