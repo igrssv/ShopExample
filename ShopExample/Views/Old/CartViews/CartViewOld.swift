@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CartView: View {
+struct CartViewOld: View {
     @ObservedObject var vm = CartViewModel()
     @Binding var selectedTab: String
     @State private var isShow = false
@@ -29,9 +29,9 @@ struct CartView: View {
     }
 }
 
-struct CartView_Previews: PreviewProvider {
+struct CartViewOld_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(selectedTab: .constant("Cart"))
+        CartViewOld(selectedTab: .constant("Cart"))
     }
 }
 

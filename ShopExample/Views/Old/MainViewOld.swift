@@ -20,7 +20,7 @@ struct MainViewOld: View {
                     }
                 }
                 .tag("Main")
-            CartView(selectedTab: $selectedTab)
+            CartViewOld(selectedTab: $selectedTab)
                 .tabItem {
                     CartIconView(vm: CartViewModel())
                 }

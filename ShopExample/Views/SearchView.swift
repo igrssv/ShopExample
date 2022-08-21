@@ -59,7 +59,7 @@ struct SearchView: View {
                 .frame(width:!isShowSearch ? 30 : 0)
                 .matchedGeometryEffect(id: "cart", in: namespace)
                 .sheet(isPresented: $isShow, content: {
-                    CartView(selectedTab: $tab)
+                    CartViewOld(selectedTab: $tab)
                 })
                 .onTapGesture {
                     if !isShowSearch {

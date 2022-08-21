@@ -36,12 +36,14 @@ struct CartItemView: View {
                             .foregroundColor(.white)
                             .overlay {
                                 Text("+")
+                                    .foregroundColor(.black)
                             }
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 40, height: 40)
                             .foregroundColor(.white)
                             .overlay {
                                 Text("-")
+                                    .foregroundColor(.black)
                             }
                     }
                 }
@@ -51,12 +53,13 @@ struct CartItemView: View {
         .frame(maxWidth: .infinity)
         .background(Color("cartItemColor"))
         .cornerRadius(20)
-        .padding()
+        .padding(.horizontal)
     }
 }
 
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
         CartItemView()
+            .preferredColorScheme(.light)
     }
 }
