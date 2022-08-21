@@ -58,8 +58,8 @@ struct SearchView: View {
                 .foregroundColor(.white)
                 .frame(width:!isShowSearch ? 30 : 0)
                 .matchedGeometryEffect(id: "cart", in: namespace)
-                .sheet(isPresented: $isShow, content: {
-                    CartViewOld(selectedTab: $tab)
+                .fullScreenCover(isPresented: $isShow, content: {
+                    CartView(show: $isShow)
                 })
                 .onTapGesture {
                     if !isShowSearch {

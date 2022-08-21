@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @Namespace private var namespace
     @StateObject private var vm = MainViewModel()
+    @State var isShow = false
         
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -26,6 +27,12 @@ struct MainView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30)
                                 .clipShape(Circle())
+                                .fullScreenCover(isPresented: $isShow) {
+                                    ProfileView()
+                                }
+                                .onTapGesture {
+                                    isShow.toggle()
+                                }
                         }
                         .padding(.horizontal)
                         .onTapGesture {

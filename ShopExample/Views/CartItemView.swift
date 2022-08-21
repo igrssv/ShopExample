@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CartItemView: View {
+    @StateObject var vm: CartItemViewModel
     var body: some View {
         HStack {
             ImageView(vm: ImageViewModel(imageURL: "vm.product.image"))
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 120)
+                .frame(width: 80, height: 110)
                 .padding(10)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .background(
@@ -32,14 +33,14 @@ struct CartItemView: View {
                     Spacer()
                     VStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                             .foregroundColor(.white)
                             .overlay {
                                 Text("+")
                                     .foregroundColor(.black)
                             }
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                             .foregroundColor(.white)
                             .overlay {
                                 Text("-")
@@ -48,8 +49,9 @@ struct CartItemView: View {
                     }
                 }
             }
-        }.padding()
-        .frame(height: 180)
+        }
+        .padding()
+        .frame(height: 160)
         .frame(maxWidth: .infinity)
         .background(Color("cartItemColor"))
         .cornerRadius(20)
@@ -59,7 +61,6 @@ struct CartItemView: View {
 
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CartItemView()
-            .preferredColorScheme(.light)
+        CartItemView(vm: CartItemViewModel(image: "newBalance", titel: "New Balance cross", price: 200))
     }
 }
