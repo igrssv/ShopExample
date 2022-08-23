@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemProductView: View {
     @ObservedObject var vm: ItemViewModel
+    @EnvironmentObject var cart: CartViewModel
     var body: some View {
         VStack {
             ImageView(vm: ImageViewModel(imageURL: vm.product.image))
@@ -35,6 +36,13 @@ struct ItemProductView: View {
                     .foregroundColor(Color("buttonColor"))
                     .frame(width: 20, height: 20)
                     .padding(.leading, 10)
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            vm.buyProduct()
+                            cart.fetch()
+                        }
+                        
+                    }
             }
             .frame(height: 20)
             .frame(maxWidth: .infinity, alignment: .leading)

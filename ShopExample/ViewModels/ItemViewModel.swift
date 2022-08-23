@@ -13,7 +13,7 @@ class ItemViewModel: ObservableObject {
     let product: Product
     @Published var isShow = false
     @Published var currentProducttoCart = ""
-    
+    @EnvironmentObject var cart: CartViewModel
     init(product: Product) {
         self.product = product
     }

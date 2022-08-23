@@ -23,6 +23,8 @@ class CartViewModel: ObservableObject {
             person = value
         }
         fetchAddress()
+        fetch()
+        
     }
         
     func fetch() {

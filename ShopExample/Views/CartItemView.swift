@@ -11,7 +11,7 @@ struct CartItemView: View {
     @StateObject var vm: CartItemViewModel
     var body: some View {
         HStack {
-            ImageView(vm: ImageViewModel(imageURL: "vm.product.image"))
+            ImageView(vm: ImageViewModel(imageURL: vm.image))
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80, height: 110)
                 .padding(10)
@@ -22,13 +22,13 @@ struct CartItemView: View {
                         .shadow(color: .gray, radius: 4)
                 )
             VStack {
-                Text("New Balance cross")
+                Text(vm.titel)
                     .bold()
                     .minimumScaleFactor(0.7)
                     .frame(height: 45)
                     .frame(maxWidth: .infinity, alignment:  .leading)
                 HStack {
-                    Text("1x 199 $")
+                    Text("1x \(vm.price) $")
                         .italic()
                     Spacer()
                     VStack {

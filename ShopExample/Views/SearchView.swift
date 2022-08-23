@@ -13,6 +13,7 @@ struct SearchView: View {
     @Namespace private var namespace
     @State private var isShow = false
     @State private var tab = ""
+    @EnvironmentObject var vm: CartViewModel
     var body: some View {
             VStack {
                 searchItem
@@ -52,20 +53,35 @@ struct SearchView: View {
                     }
                 }
             Spacer()
-            Image(systemName: "cart.circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.white)
-                .frame(width:!isShowSearch ? 30 : 0)
-                .matchedGeometryEffect(id: "cart", in: namespace)
-                .fullScreenCover(isPresented: $isShow, content: {
-                    CartView(show: $isShow)
-                })
-                .onTapGesture {
-                    if !isShowSearch {
-                        isShow.toggle()
-                    }
+            ZStack {
+                Circle()
+                    .frame(width: vm.products.isEmpty ? 0 : 13)
+                    .foregroundColor(.red.opacity(0.8))
+                    .offset(x: 1, y: vm.products.isEmpty ? -30 : -5)
+                    .matchedGeometryEffect(id: "cartGoods", in: namespace)
+                Text(vm.products.count == 0 ? "" : "\(vm.products.count)")
+                    .font(.system(size: 10))
+                    .bold()
+                    .foregroundColor(.white)
+                    .frame(width: !vm.products.isEmpty ? 0 : 13)
+                    .offset(x: 1.3, y: !vm.products.isEmpty ? -30 : -7)
+                    .matchedGeometryEffect(id: "cartGoodsCount", in: namespace)
+                Image(systemName: "cart.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                    .frame(width:!isShowSearch ? 30 : 0)
+                    .matchedGeometryEffect(id: "cart", in: namespace)
+                    .fullScreenCover(isPresented: $isShow, content: {
+                        CartView(show: $isShow)
+                    })
+                    .onTapGesture {
+                        if !isShowSearch {
+                            isShow.toggle()
+                        }
                 }
+               
+            }
         }
         .padding(.horizontal, 10)
     }
@@ -79,6 +95,6 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
-            .previewInterfaceOrientation(.portrait)
+            .environmentObject(CartViewModel())
     }
 }

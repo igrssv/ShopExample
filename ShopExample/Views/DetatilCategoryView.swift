@@ -49,7 +49,7 @@ struct DetatilCategoryView: View {
                         close()
                     }
             }
-            SearchView()
+//            SearchView()
         }
         
     }

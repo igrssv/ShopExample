@@ -9,32 +9,57 @@ import SwiftUI
 
 struct AddressView: View {
     @ObservedObject var vm: CartViewModel
+    @State private var isShowProfileView = false
     var body: some View {
-        
+        if vm.person != nil {
             ScrollView(.horizontal) {
-                HStack {
-                    ForEach(vm.address, id:\.addres) { item in
-                        VStack(alignment: .leading) {
-                            Text("Address")
-                                .font(.title)
-                                .bold()
-                            Text(item.city)
-                                .font(.title3)
-                            Text(item.addres)
-                                .font(.title3)
-                            Text(item.home)
-                                .font(.title3)
+                    HStack {
+                        ForEach(vm.address, id:\.addres) { item in
+                            VStack(alignment: .leading) {
+                                Text("Address")
+                                    .font(.title)
+                                    .bold()
+                                Text(item.city)
+                                    .font(.title3)
+                                Text(item.addres)
+                                    .font(.title3)
+                                Text(item.home)
+                                    .font(.title3)
+                            }
+                            .padding()
+                            .frame(height: 180)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color("AddressItemColor"))
+                            .cornerRadius(20)
+                            .padding(.horizontal)
                         }
-                        .padding()
-                        .frame(height: 180)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color("AddressItemColor"))
-                        .cornerRadius(20)
-                        .padding(.horizontal)
                     }
-                }
-                .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width)
             }
+        } else {
+            VStack(alignment: .center) {
+                Text("No address, create account please")
+                    .foregroundColor(.black)
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaleEffect(0.3)
+                    .foregroundColor(.blue)
+            }
+            .padding()
+            .frame(height: 180)
+            .frame(maxWidth: .infinity)
+            .background(Color("AddressItemColor"))
+            .cornerRadius(20)
+            .padding(.horizontal)
+            .sheet(isPresented: $isShowProfileView, content: {
+                ProfileView()
+            })
+            .onTapGesture {
+                isShowProfileView.toggle()
+                
+            }
+        }
         
     }
 }

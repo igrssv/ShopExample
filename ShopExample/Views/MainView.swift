@@ -10,11 +10,12 @@ import SwiftUI
 struct MainView: View {
     @Namespace private var namespace
     @StateObject private var vm = MainViewModel()
+    @StateObject private var cart = CartViewModel()
     @State var isShow = false
         
     var body: some View {
         ZStack(alignment: .bottom) {
-            if !vm.isShow{
+            if !vm.isShow {
                     VStack {
                         HStack {
                             Text("Tony Stark")
@@ -27,7 +28,7 @@ struct MainView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30)
                                 .clipShape(Circle())
-                                .fullScreenCover(isPresented: $isShow) {
+                                .sheet(isPresented: $isShow) {
                                     ProfileView()
                                 }
                                 .onTapGesture {
@@ -39,17 +40,25 @@ struct MainView: View {
                             
                         }
                         ScrollView(.vertical, showsIndicators: false)  {
+                            HStack {
+                                Text("Categories")
+                                    .font(.title)
+                                    .bold()
+                                    .italic()
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
                             ItemCategoryView(namecpace: namespace, vm: vm)
                         }
                     }
                 Spacer(minLength: 60)
                 SearchView()
-                    
             } else {
                 DetatilCategoryView(namecpace: namespace, vm: vm)
+                SearchView()
             }
-            
         }
+        .environmentObject(cart)
         
     }
 }

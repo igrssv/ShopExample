@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CartView: View {
-    @StateObject var vm = CartViewModel()
+    @EnvironmentObject var vm: CartViewModel
     @State var selectedTab = "Profile"
     @State var isShow = false
     @Binding var show: Bool
     var body: some View {
-        if vm.products.isEmpty {
+        if !vm.products.isEmpty {
             ZStack(alignment: .bottom) {
                 ZStack(alignment: .top) {
                     VStack {
@@ -30,36 +30,30 @@ struct CartView: View {
                                 ForEach(vm.products, id:\.id) { item in
                                     CartItemView(vm: CartItemViewModel(image: item.image, titel: item.title, price: item.price))
                                 }
+                                
                             }
+                            
+                            
                             AddressView(vm: vm)
                         }
                         
                     }
                     //MARK: - close button
-                    HStack {
-                        Spacer()
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.black)
-                            .frame(height: 10)
-                            .padding(10)
-                            .background(Color("ToolBarButton"))
-                            .clipShape(Circle())
-                            .onTapGesture {
-                                show.toggle()
-                            }
-                        
-                    }
-                    .padding(.trailing)
-                    .padding(.top, 5)
-                    Spacer(minLength: 70)
+                    ToolbarView()
+                        .onTapGesture {
+                            show.toggle()
+                        }
+                    
                 }
                 //MARK: - pay orders
                 HStack {
+                    Text("clear")
+                        .onTapGesture {
+                            vm.clearCart()
+                        }
                     Text("Pay orders")
                     Spacer()
-                    Text(String(vm.finalPrice) + " $")
+                    Text(String(format: "%.2f", vm.finalPrice) + " $")
                 }
                 .padding()
                 .foregroundColor(.white)
