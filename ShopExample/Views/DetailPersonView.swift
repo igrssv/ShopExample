@@ -14,30 +14,34 @@ struct DetailPersonView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    HStack(spacing: 20) {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40)
-                            .clipShape(Circle())
-                            .matchedGeometryEffect(id: "personImage", in: namespace)
-                        Text("Tony Stark")
-                            .font(.largeTitle)
-                            .bold()
-                            .minimumScaleFactor(0.6)
-                            .matchedGeometryEffect(id: "personName", in: namespace)
-                        Spacer()
+            if vm.person != nil {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 20) {
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40)
+                                .clipShape(Circle())
+                                .matchedGeometryEffect(id: "personImage", in: namespace)
+                            Text("Tony Stark")
+                                .font(.largeTitle)
+                                .bold()
+                                .minimumScaleFactor(0.6)
+                                .matchedGeometryEffect(id: "personName", in: namespace)
+                            Spacer()
+                        }
+                        Text("Edit profile")
+                            .font(.subheadline)
+                            .italic()
+                            .foregroundColor(.gray)
                     }
-                    Text("Edit profile")
-                        .font(.subheadline)
-                        .italic()
-                        .foregroundColor(.gray)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    PersonListView(vm: vm)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                PersonListView(vm: vm)
+            } else {
+                NoUserView(vm: vm)
             }
             CloseView()
                 .onTapGesture {
@@ -56,6 +60,7 @@ struct DetailPersonView_Previews: PreviewProvider {
     }
 }
 
+//MARK: - Rows Person profile
 struct PersonListView: View {
     @ObservedObject var vm: ProfileViewModel
     var body: some View {
@@ -78,5 +83,42 @@ struct PersonListView: View {
             .padding(.top)
         }
         .padding(.bottom)
+    }
+}
+//MARK: - if no user data
+struct NoUserView: View {
+    @ObservedObject var vm: ProfileViewModel
+    @State private var isShowRegestation = false
+    var body: some View {
+        VStack {
+            Spacer()
+            VStack {
+                Image("nouser")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                Text("Don't have an account?")
+                Text("Let's create!")
+                Text("Create account")
+                    .font(.title3)
+                    .frame(height: 40)
+                    .frame(width: UIScreen.main.bounds.width * 0.6, alignment: .center)
+                    .foregroundColor(.white)
+                    .background(.green)
+                    .cornerRadius(10)
+                    .fullScreenCover(isPresented: $isShowRegestation, content: {
+                        CreateProfileView()
+                    })
+                    .onTapGesture {
+                        isShowRegestation.toggle()
+                    }
+                
+            }
+            Spacer()
+            Button(action: {}) {
+                Text("About the application")
+            }
+            .padding(.bottom)
+        }
     }
 }

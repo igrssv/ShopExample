@@ -13,7 +13,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if vm.person != nil {
+                if vm.person == nil {
                     AuthorizedUserView(vm: vm)
                 } else {
                     NoAuthorizedUserView(vm: vm, isShow:  $isShow)

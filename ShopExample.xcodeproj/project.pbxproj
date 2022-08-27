@@ -14,6 +14,7 @@
 		8E1EBC172890212A00A65F8D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EBC162890212A00A65F8D /* Product.swift */; };
 		8E1EBC19289025AB00A65F8D /* ShopboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EBC18289025AB00A65F8D /* ShopboardViewModel.swift */; };
 		8E27D60828BA0A6900CA527A /* DetailPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27D60728BA0A6900CA527A /* DetailPersonView.swift */; };
+		8E27D60A28BA51FE00CA527A /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27D60928BA51FE00CA527A /* CreateProfileView.swift */; };
 		8E5513E6289BBB42002195EB /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5513E5289BBB42002195EB /* DeliveryView.swift */; };
 		8E5D950228A42954009BC28D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D950128A42954009BC28D /* Category.swift */; };
 		8E5D950428A429AE009BC28D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D950328A429AE009BC28D /* MainViewModel.swift */; };
@@ -74,6 +75,7 @@
 		8E1EBC162890212A00A65F8D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8E1EBC18289025AB00A65F8D /* ShopboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopboardViewModel.swift; sourceTree = "<group>"; };
 		8E27D60728BA0A6900CA527A /* DetailPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonView.swift; sourceTree = "<group>"; };
+		8E27D60928BA51FE00CA527A /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		8E5513E5289BBB42002195EB /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		8E5D950128A42954009BC28D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8E5D950328A429AE009BC28D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -191,6 +193,8 @@
 				8EDEAE2B28B22B1A00FE5EF6 /* CartView.swift */,
 				8EDEAE2F28B2AB5700FE5EF6 /* AddressView.swift */,
 				8E27D60728BA0A6900CA527A /* DetailPersonView.swift */,
+				8E27D60928BA51FE00CA527A /* CreateProfileView.swift */,
+				8EB23C11289AB99B00B4364D /* TextFieldCreateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 			children = (
 				8E65BE9F2893D7C50052DA62 /* ItemViewModel.swift */,
 				8EB23BEE289686A800B4364D /* CartViewModel.swift */,
+				8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */,
 				8E5D950528A429B8009BC28D /* OldViews */,
 				8E5D950328A429AE009BC28D /* MainViewModel.swift */,
 				8EDEAE2D28B2A30200FE5EF6 /* CartItemViewModel.swift */,
@@ -234,7 +239,6 @@
 				8E1EBC18289025AB00A65F8D /* ShopboardViewModel.swift */,
 				8E65BEA32895B4D30052DA62 /* ProductViewModel.swift */,
 				8E65BEA52895BBC50052DA62 /* ImageViewModel.swift */,
-				8EB23BF62897F7CC00B4364D /* ProfileViewModel.swift */,
 				8EB23BFC28980E7000B4364D /* CreatePersonViewModel.swift */,
 				8EB23C04289A691300B4364D /* CheckoutViewModel.swift */,
 				8E72A09D289D091F00C154B8 /* DeliveryViewModel.swift */,
@@ -258,7 +262,6 @@
 				8EB23BF22897C61E00B4364D /* ProfileView.swift */,
 				8EB23BF82897FAF200B4364D /* CreatePersonView.swift */,
 				8EB23C0C289AB8C900B4364D /* AddAddressView.swift */,
-				8EB23C11289AB99B00B4364D /* TextFieldCreateView.swift */,
 				8EB23C13289ABF4900B4364D /* NoAuthorizedUserView.swift */,
 				8E5513E5289BBB42002195EB /* DeliveryView.swift */,
 				8E72A0A1289D4FA500C154B8 /* DeliveryFullView.swift */,
@@ -397,6 +400,7 @@
 				8EC1FAD928A2DBC000D1DB28 /* MainView.swift in Sources */,
 				8E65BEA02893D7C50052DA62 /* ItemViewModel.swift in Sources */,
 				8EB23BFD28980E7000B4364D /* CreatePersonViewModel.swift in Sources */,
+				8E27D60A28BA51FE00CA527A /* CreateProfileView.swift in Sources */,
 				8E5D950428A429AE009BC28D /* MainViewModel.swift in Sources */,
 				8EDEAE3028B2AB5700FE5EF6 /* AddressView.swift in Sources */,
 				8E72A0A2289D4FA500C154B8 /* DeliveryFullView.swift in Sources */,

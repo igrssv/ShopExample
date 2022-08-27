@@ -10,6 +10,7 @@ import SwiftUI
 struct AddressView: View {
     @ObservedObject var vm: CartViewModel
     @State private var isShowProfileView = false
+    @Namespace private var namespace
     var body: some View {
         if vm.person != nil {
             ScrollView(.horizontal) {
@@ -52,8 +53,8 @@ struct AddressView: View {
             .background(Color("AddressItemColor"))
             .cornerRadius(20)
             .padding(.horizontal)
-            .sheet(isPresented: $isShowProfileView, content: {
-                ProfileView()
+            .fullScreenCover(isPresented: $isShowProfileView, content: {
+                DetailPersonView(isShow: $isShowProfileView, namespace: namespace)
             })
             .onTapGesture {
                 isShowProfileView.toggle()
