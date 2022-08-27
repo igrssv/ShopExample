@@ -39,7 +39,7 @@ struct CartView: View {
                         
                     }
                     //MARK: - close button
-                    ToolbarView()
+                    CloseView()
                         .onTapGesture {
                             show.toggle()
                         }

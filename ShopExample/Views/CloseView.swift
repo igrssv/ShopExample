@@ -1,5 +1,5 @@
 //
-//  ToolbarView.swift
+//  CloseView.swift
 //  ShopExample
 //
 //  Created by Игорь Сысоев on 09.08.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ToolbarView: View {
+struct CloseView: View {
     var body: some View {
         HStack {
             Spacer()
@@ -20,12 +20,12 @@ struct ToolbarView: View {
                 .clipShape(Circle())
         }
         .padding(.horizontal, 10)
+        .padding(.top)
     }
 }
 
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarView()
-            .preferredColorScheme(.dark)
+        CloseView()
     }
 }

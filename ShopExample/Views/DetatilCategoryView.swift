@@ -12,9 +12,9 @@ struct DetatilCategoryView: View {
     @ObservedObject var vm: MainViewModel
     @State private var scale: CGFloat = 1
     var body: some View {
-        ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
                 ScrollView {
+                    //MARK: - Detail image and titel category
                     VStack {
                         Image(vm.setCategory?.image ?? "jewelery")
                             .resizable()
@@ -40,19 +40,19 @@ struct DetatilCategoryView: View {
                     .onTapGesture {
                         close()
                     }
+                    //MARK: - Product list view
                     ProductsListView(vm: ShopboardViewModel(category: vm.setCategory?.titel ?? "jewelery"))
                     Spacer(minLength: 75)
                 }
                 .ignoresSafeArea()
-                ToolbarView()
+                CloseView()
                     .onTapGesture {
                         close()
                     }
             }
-//            SearchView()
-        }
-        
     }
+    
+    //MARK: - Close gesture actions
     func onChanged(value: DragGesture.Value) {
         let scale = value.translation.height / UIScreen.main.bounds.height
         self.scale = 1 - scale
@@ -64,7 +64,6 @@ struct DetatilCategoryView: View {
             } else {
                 scale = 1
             }
-            
         }
     }
     

@@ -11,11 +11,11 @@ class MainViewModel: ObservableObject {
     @Published var categories: [Category] =  []
     @Published var setCategory: Category? = nil
     @Published var isShow = false
+    @Published var cartSetup = CartViewModel()
     
     init() {
         categories = StorageManager.shared.loadCategories()
     }
-    
     
     func selectedCategory(category: Category?) {
         setCategory = category
