@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ItemProductView: View {
     @ObservedObject var vm: ItemViewModel
-    var namespace: Namespace.ID
     @EnvironmentObject var cart: CartViewModel // проверить
+    @State private var isShowProduct = false
     var body: some View {
         ZStack {
             VStack {
@@ -25,11 +25,11 @@ struct ItemProductView: View {
                             .shadow(color: .gray, radius: 4)
                     )
                     .padding(.bottom, 10)
+                    .fullScreenCover(isPresented: $vm.isShow, content: {
+                        DetailProductView(vm: vm)
+                    })
                     .onTapGesture {
-                        withAnimation(.interactiveSpring()) {
-                            vm.detatilCategoryVM.setProduct = vm.product
-                        }
-                        
+                        vm.showDetailProduct()
                     }
                 Text(vm.product.title)
                     .bold()
@@ -49,7 +49,6 @@ struct ItemProductView: View {
                                 vm.buyProduct()
                                 cart.fetch()
                             }
-                            
                         }
                 }
                 .frame(height: 20)
@@ -64,6 +63,6 @@ struct ItemProductView: View {
 struct ItemProductView_Previews: PreviewProvider {
     @Namespace static private var namespace
     static var previews: some View {
-        ItemProductView(vm: ItemViewModel(product: Product.fetchOneProduct(), detatilCategoryVM: DetatilCategoryViewModel(mainViewVM: MainViewModel())), namespace: namespace)
+        ItemProductView(vm: ItemViewModel(product: Product.fetchOneProduct()))
     }
 }

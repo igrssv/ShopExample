@@ -13,11 +13,11 @@ class ItemViewModel: ObservableObject {
     let product: Product
     @Published var isShow = false
     @Published var currentProducttoCart = ""
-    @Published var detatilCategoryVM: DetatilCategoryViewModel
-    @EnvironmentObject var cart: CartViewModel
-    init(product: Product, detatilCategoryVM: DetatilCategoryViewModel) {
+    @Published var cart = CartViewModel()
+    @Published var showAnimation = false
+    
+    init(product: Product) {
         self.product = product
-        self.detatilCategoryVM = detatilCategoryVM
     }
     
     func buyProduct() {
@@ -25,5 +25,15 @@ class ItemViewModel: ObservableObject {
         StorageManager.shared.load(key: .keyProduct) { (value: [Product]) in
             self.currentProducttoCart = String(value.filter({$0.id == product.id}).count)
         }
+        cart.fetch()
+    }
+    func showAnimationButton() {
+        showAnimation.toggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.showAnimation.toggle()
+        }
+    }
+    func showDetailProduct() {
+        isShow.toggle()
     }
 }

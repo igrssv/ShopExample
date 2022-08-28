@@ -15,7 +15,7 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             if !isShowProfile {
-            if !vm.isShow {
+                if vm.setCategory == nil {
                 VStack {
                     PersonView(isShowProfile: $isShowProfile, namespace: namespace)
                         .environmentObject(vm.profileSetup)
@@ -30,12 +30,13 @@ struct MainView: View {
                         .padding(.horizontal)
                         ItemCategoryView(namecpace: namespace, vm: vm)
                     }
-                    Spacer(minLength: 70)
+                    Rectangle()
+                        .frame(width: 2 ,height: 65)
+                        .opacity(0)
                 }
                 SearchView()
             } else {
                 DetatilCategoryView(namecpace: namespace, vm: DetatilCategoryViewModel(mainViewVM: vm))
-                SearchView()
             }
             } else {
                 DetailPersonView(isShow: $isShowProfile, namespace: namespace)

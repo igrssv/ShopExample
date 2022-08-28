@@ -11,50 +11,53 @@ struct DetatilCategoryView: View {
     var namecpace: Namespace.ID
     @ObservedObject var vm: DetatilCategoryViewModel
     @State private var scale: CGFloat = 1
-    @State private var isShowDetailPV = false
     var body: some View {
-        if vm.setProduct == nil {
+        ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                    ScrollView {
-                        //MARK: - Detail image and titel category
-                        VStack {
-                            Image(vm.mainViewVM.setCategory?.image ?? "jewelery")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .matchedGeometryEffect(id: vm.mainViewVM.setCategory?.image ?? "", in: namecpace)
-                                .frame(width: UIScreen.main.bounds.width,
-                                       height: UIScreen.main.bounds.height / 2.5)
-                            Text(vm.mainViewVM.setCategory?.titel.capitalized ?? "")
-                                .font(.title3)
-                                .bold()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .matchedGeometryEffect(id: "titel \(vm.mainViewVM.setCategory?.titel ?? "")", in: namecpace)
-                                .padding()
-                        }
-                        .cornerRadius(scale == 1 ? 0 : 20)
-                        .scaleEffect(scale)
-                        .gesture(DragGesture(minimumDistance: 0).onChanged({ value in
-                            onChanged(value: value)
-                        }).onEnded({ value in
-                            onEditing(value: value)
-                        }))
-                        .padding(.bottom, 10)
-                        .onTapGesture {
-                            close()
-                        }
-                        //MARK: - Product list view
-                        ProductsListView(vm: ProducrListViewModel(detatilCategoryVM: vm), namespace: namecpace)
+                ScrollView {
+                    //MARK: - Detail image and titel category
+                    VStack {
+                        Image(vm.mainViewVM.setCategory?.image ?? "jewelery")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .matchedGeometryEffect(id: vm.mainViewVM.setCategory?.image ?? "", in: namecpace)
+                            .frame(width: UIScreen.main.bounds.width,
+                                   height: UIScreen.main.bounds.height / 2.5)
+                        Text(vm.mainViewVM.setCategory?.titel.capitalized ?? "")
+                            .font(.title3)
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .matchedGeometryEffect(id: "titel \(vm.mainViewVM.setCategory?.titel ?? "")", in: namecpace)
+                            .padding()
                     }
-                    .ignoresSafeArea()
-                    .padding(.bottom, 65)
-                    CloseView()
-                        .onTapGesture {
-                            close()
-                        }
+                    .cornerRadius(scale == 1 ? 0 : 20)
+                    .scaleEffect(scale)
+                    //MARK: - action gesture
+                    .gesture(DragGesture(minimumDistance: 0).onChanged({ value in
+                        onChanged(value: value)
+                    }).onEnded({ value in
+                        onEditing(value: value)
+                    }))
+                    .padding(.bottom, 10)
+                    .onTapGesture {
+                        close()
+                    }
+                    //MARK: - Product list view
+                    ProductsListView(vm: ProducrListViewModel(detatilCategoryVM: vm), namespace: namecpace)
+                    Rectangle()
+                        .frame(width: 2 ,height: 65)
+                        .opacity(0)
+                }
+                .ignoresSafeArea()
+                
+                CloseView()
+                    .onTapGesture {
+                        close()
+                    }
             }
-        } else {
-            DetailProductView(vm: vm, namecpace: namecpace)
+            SearchView()
         }
+        
     }
     
     //MARK: - Close gesture actions

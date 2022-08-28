@@ -8,35 +8,32 @@
 import SwiftUI
 
 struct DetailProductView: View {
-    @ObservedObject var vm: DetatilCategoryViewModel
-    var namecpace: Namespace.ID
+    @ObservedObject var vm: ItemViewModel
+    @EnvironmentObject var cart: CartViewModel
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
                 ScrollView {
                     VStack {
-                        ImageView(vm: ImageViewModel(imageURL: vm.setProduct?.image ?? ""))
+                        ImageView(vm: ImageViewModel(imageURL: vm.product.image))
                             .aspectRatio(contentMode: .fit)
-                            .matchedGeometryEffect(id: vm.setProduct?.image ?? "", in: namecpace)
                             .frame(width: UIScreen.main.bounds.width,
                                    height: UIScreen.main.bounds.height / 2.5)
                         VStack(alignment: .leading) {
-                            Text(vm.setProduct?.title ?? "")
+                            Text(vm.product.title)
                                 .font(.largeTitle)
                                 .bold()
                                 .minimumScaleFactor(0.7)
-                                .matchedGeometryEffect(id: vm.setProduct?.title ?? "", in: namecpace)
-                            Text(vm.setProduct?.category ?? "")
+                            Text(vm.product.category)
                                 .font(.subheadline)
                                 .italic()
-                            Text(String(format: "%.2f", vm.setProduct?.price ?? 0) + " $")
+                            Text(String(format: "%.2f", vm.product.price) + " $")
                                 .font(.title3)
-                                .matchedGeometryEffect(id: String(format: "%.2f", vm.setProduct?.price ?? 0) , in: namecpace)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         Divider()
-                        Text(vm.setProduct?.description ?? "")
+                        Text(vm.product.description)
                             .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
@@ -46,9 +43,7 @@ struct DetailProductView: View {
                 .padding(.top)
                 CloseView()
                     .onTapGesture {
-                        withAnimation(.interactiveSpring()) {
-                            vm.setProduct = nil
-                        }
+                        vm.showDetailProduct()
                     }
             }
             //MARK: - Button bye to cart product
@@ -56,7 +51,7 @@ struct DetailProductView: View {
                 Text("Bye")
                     .font(.title3)
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(.white)        
                 Spacer()
                 Image(systemName: "plus.app")
                     .resizable()
@@ -64,19 +59,20 @@ struct DetailProductView: View {
                     .foregroundColor(.white)
                     .frame(width: 20, height: 20)
                     .padding(.leading, 10)
-                    .onTapGesture {
-//                                withAnimation(.spring()) {
-//                                    vm.buyProduct()
-//                                    cart.fetch()
-//                                }
-                        
-                    }
             }
             .padding()
             .frame(height: 58)
-            .background(Color("buttonColor"))
+            .background(vm.showAnimation ? .red : Color("buttonColor"))
             .cornerRadius(20)
+            .onTapGesture {
+                vm.buyProduct()
+                cart.fetch()
+                withAnimation(.easeInOut) {
+                    vm.showAnimationButton()
+                }
+            }
             .padding()
+            .scaleEffect(vm.showAnimation ? 1.04: 1)
         }
     }
 }
@@ -84,6 +80,6 @@ struct DetailProductView: View {
 struct DetailProductView_Previews: PreviewProvider {
     @Namespace static private var namespace
     static var previews: some View {
-        DetailProductView(vm: DetatilCategoryViewModel(mainViewVM: MainViewModel()), namecpace: namespace)
+        DetailProductView(vm: ItemViewModel(product: Product.fetchOneProduct()))
     }
 }

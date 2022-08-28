@@ -21,7 +21,7 @@ struct ProductsListView: View {
                 ZStack {
                     LazyVGrid(columns: gridItems) {
                         ForEach(vm.products, id:\.id) { product in
-                            ItemProductView(vm: ItemViewModel(product: product, detatilCategoryVM: vm.detatilCategoryVM), namespace: namespace)
+                            ItemProductView(vm: ItemViewModel(product: product))
                         }
                     }
                     .padding()
