@@ -9,9 +9,8 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var vm: CartViewModel
-    @State var selectedTab = "Profile"
-    @State var isShow = false
     @Binding var show: Bool
+    
     var body: some View {
         if !vm.products.isEmpty {
             ZStack(alignment: .bottom) {

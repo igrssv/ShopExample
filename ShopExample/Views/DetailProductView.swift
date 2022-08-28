@@ -53,6 +53,8 @@ struct DetailProductView: View {
                     .bold()
                     .foregroundColor(.white)        
                 Spacer()
+                Text(vm.currentProducttoCart.isEmpty ? "" : "Position in cart: " + vm.currentProducttoCart)
+                Spacer()
                 Image(systemName: "plus.app")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

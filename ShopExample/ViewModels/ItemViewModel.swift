@@ -18,10 +18,14 @@ class ItemViewModel: ObservableObject {
     
     init(product: Product) {
         self.product = product
+        fetchProduct()
     }
     
     func buyProduct() {
         StorageManager.shared.saveSet(item: product, key: .keyProduct)
+        fetchProduct()
+    }
+    func fetchProduct() {
         StorageManager.shared.load(key: .keyProduct) { (value: [Product]) in
             self.currentProducttoCart = String(value.filter({$0.id == product.id}).count)
         }
