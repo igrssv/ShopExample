@@ -41,11 +41,12 @@ struct ItemProductView: View {
                     Image(systemName: "plus.app")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color("buttonColor"))
+                        .foregroundColor(vm.showAnimation ? .red: Color("buttonColor"))
                         .frame(width: 20, height: 20)
                         .padding(.leading, 10)
+                        .scaleEffect(vm.showAnimation ? 1.1 : 1)
                         .onTapGesture {
-                            withAnimation(.spring()) {
+                            withAnimation {
                                 vm.buyProduct()
                                 cart.fetch()
                             }
@@ -55,7 +56,7 @@ struct ItemProductView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(width: 160)
-        .padding(10)
+            .padding(10)
         }
     }
 }

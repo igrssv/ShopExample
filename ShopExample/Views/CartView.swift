@@ -26,6 +26,16 @@ struct CartView: View {
                             }
                             .padding()
                             VStack {
+                                Text("Clear cart")
+                                    .foregroundColor(.white)
+                                    .padding(8)
+                                    .background(.red.opacity(0.8))
+                                    .cornerRadius(20)
+                                    .onTapGesture {
+                                        vm.clearCart()
+                                    }
+                                    .frame(maxWidth: .infinity, alignment:  .leading)
+                                    .padding(.horizontal)
                                 ForEach(vm.products, id:\.id) { item in
                                     CartItemView(vm: CartItemViewModel(image: item.image, titel: item.title, price: item.price))
                                 }
@@ -43,10 +53,6 @@ struct CartView: View {
                 }
                 //MARK: - pay orders
                 HStack {
-                    Text("clear")
-                        .onTapGesture {
-                            vm.clearCart()
-                        }
                     Text("Pay orders")
                     Spacer()
                     Text(String(format: "%.2f", vm.finalPrice) + " $")

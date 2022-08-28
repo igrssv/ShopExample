@@ -23,6 +23,7 @@ class ItemViewModel: ObservableObject {
     
     func buyProduct() {
         StorageManager.shared.saveSet(item: product, key: .keyProduct)
+        showAnimationButton()
         fetchProduct()
     }
     func fetchProduct() {
