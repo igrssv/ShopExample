@@ -77,7 +77,7 @@ struct ItemView: View {
 struct ItemView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ItemView(vm: ItemViewModel(product: Product.fetchOneProduct()))
+        ItemView(vm: ItemViewModel(product: Product.fetchOneProduct(), detatilCategoryVM: DetatilCategoryViewModel(mainViewVM: MainViewModel())))
             
     }
 }

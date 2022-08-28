@@ -10,33 +10,15 @@ import SwiftUI
 struct MainView: View {
     @Namespace private var namespace
     @StateObject private var vm = MainViewModel()
-    @State var isShow = false
+    @State var isShowProfile = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            if !isShow {
+            if !isShowProfile {
             if !vm.isShow {
                 VStack {
-                    HStack {
-                        Text("Tony Stark")
-                            .font(.largeTitle)
-                            .bold()
-                            .minimumScaleFactor(0.6)
-                            .matchedGeometryEffect(id: "personName", in: namespace)
-                        Spacer()
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30)
-                            .clipShape(Circle())
-                            .matchedGeometryEffect(id: "personImage", in: namespace)
-                            .onTapGesture {
-                                withAnimation {
-                                    isShow.toggle()
-                                }
-                            }
-                    }
-                    .padding()
+                    PersonView(isShowProfile: $isShowProfile, namespace: namespace)
+                        .environmentObject(vm.profileSetup)
                     ScrollView(.vertical, showsIndicators: false)  {
                         HStack {
                             Text("Categories")
@@ -48,15 +30,16 @@ struct MainView: View {
                         .padding(.horizontal)
                         ItemCategoryView(namecpace: namespace, vm: vm)
                     }
+                    Spacer(minLength: 70)
                 }
-                Spacer(minLength: 60)
                 SearchView()
             } else {
-                DetatilCategoryView(namecpace: namespace, vm: vm)
+                DetatilCategoryView(namecpace: namespace, vm: DetatilCategoryViewModel(mainViewVM: vm))
                 SearchView()
             }
             } else {
-                DetailPersonView(isShow: $isShow, namespace: namespace)
+                DetailPersonView(isShow: $isShowProfile, namespace: namespace)
+                    .environmentObject(vm.profileSetup)
             }
         }
         .environmentObject(vm.cartSetup)

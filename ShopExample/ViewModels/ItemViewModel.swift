@@ -13,9 +13,11 @@ class ItemViewModel: ObservableObject {
     let product: Product
     @Published var isShow = false
     @Published var currentProducttoCart = ""
+    @Published var detatilCategoryVM: DetatilCategoryViewModel
     @EnvironmentObject var cart: CartViewModel
-    init(product: Product) {
+    init(product: Product, detatilCategoryVM: DetatilCategoryViewModel) {
         self.product = product
+        self.detatilCategoryVM = detatilCategoryVM
     }
     
     func buyProduct() {

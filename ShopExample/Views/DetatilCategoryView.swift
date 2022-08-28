@@ -9,47 +9,52 @@ import SwiftUI
 
 struct DetatilCategoryView: View {
     var namecpace: Namespace.ID
-    @ObservedObject var vm: MainViewModel
+    @ObservedObject var vm: DetatilCategoryViewModel
     @State private var scale: CGFloat = 1
+    @State private var isShowDetailPV = false
     var body: some View {
+        if vm.setProduct == nil {
             ZStack(alignment: .top) {
-                ScrollView {
-                    //MARK: - Detail image and titel category
-                    VStack {
-                        Image(vm.setCategory?.image ?? "jewelery")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .matchedGeometryEffect(id: vm.setCategory?.image ?? "", in: namecpace)
-                            .frame(width: UIScreen.main.bounds.width,
-                                   height: UIScreen.main.bounds.height / 2.5)
-                        Text(vm.setCategory?.titel.capitalized ?? "")
-                            .font(.title3)
-                            .bold()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .matchedGeometryEffect(id: "titel \(vm.setCategory?.titel ?? "")", in: namecpace)
-                            .padding()
+                    ScrollView {
+                        //MARK: - Detail image and titel category
+                        VStack {
+                            Image(vm.mainViewVM.setCategory?.image ?? "jewelery")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .matchedGeometryEffect(id: vm.mainViewVM.setCategory?.image ?? "", in: namecpace)
+                                .frame(width: UIScreen.main.bounds.width,
+                                       height: UIScreen.main.bounds.height / 2.5)
+                            Text(vm.mainViewVM.setCategory?.titel.capitalized ?? "")
+                                .font(.title3)
+                                .bold()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .matchedGeometryEffect(id: "titel \(vm.mainViewVM.setCategory?.titel ?? "")", in: namecpace)
+                                .padding()
+                        }
+                        .cornerRadius(scale == 1 ? 0 : 20)
+                        .scaleEffect(scale)
+                        .gesture(DragGesture(minimumDistance: 0).onChanged({ value in
+                            onChanged(value: value)
+                        }).onEnded({ value in
+                            onEditing(value: value)
+                        }))
+                        .padding(.bottom, 10)
+                        .onTapGesture {
+                            close()
+                        }
+                        //MARK: - Product list view
+                        ProductsListView(vm: ProducrListViewModel(detatilCategoryVM: vm), namespace: namecpace)
                     }
-                    .cornerRadius(scale == 1 ? 0 : 20)
-                    .scaleEffect(scale)
-                    .gesture(DragGesture(minimumDistance: 0).onChanged({ value in
-                        onChanged(value: value)
-                    }).onEnded({ value in
-                        onEditing(value: value)
-                    }))
-                    .padding(.bottom, 10)
-                    .onTapGesture {
-                        close()
-                    }
-                    //MARK: - Product list view
-                    ProductsListView(vm: ShopboardViewModel(category: vm.setCategory?.titel ?? "jewelery"))
-                    Spacer(minLength: 75)
-                }
-                .ignoresSafeArea()
-                CloseView()
-                    .onTapGesture {
-                        close()
-                    }
+                    .ignoresSafeArea()
+                    .padding(.bottom, 65)
+                    CloseView()
+                        .onTapGesture {
+                            close()
+                        }
             }
+        } else {
+            DetailProductView(vm: vm, namecpace: namecpace)
+        }
     }
     
     //MARK: - Close gesture actions
@@ -69,7 +74,7 @@ struct DetatilCategoryView: View {
     
     func close() {
         withAnimation(.interactiveSpring()) {
-            vm.selectedCategory(category: nil)
+            vm.mainViewVM.selectedCategory(category: nil)
         }
     }
 }
@@ -77,6 +82,6 @@ struct DetatilCategoryView: View {
 struct ProductsView_Previews: PreviewProvider {
     @Namespace static private var namespace
     static var previews: some View {
-        DetatilCategoryView(namecpace: namespace, vm: MainViewModel())
+        DetatilCategoryView(namecpace: namespace, vm: DetatilCategoryViewModel(mainViewVM: MainViewModel()))
     }
 }

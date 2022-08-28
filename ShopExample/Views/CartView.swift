@@ -25,25 +25,22 @@ struct CartView: View {
                                     .bold()
                                 Spacer()
                             }
-                            .padding(.horizontal)
+                            .padding()
                             VStack {
                                 ForEach(vm.products, id:\.id) { item in
                                     CartItemView(vm: CartItemViewModel(image: item.image, titel: item.title, price: item.price))
                                 }
                                 
                             }
-                            
-                            
                             AddressView(vm: vm)
                         }
-                        
                     }
+                    .padding(.bottom, 88)
                     //MARK: - close button
                     CloseView()
                         .onTapGesture {
                             show.toggle()
                         }
-                    
                 }
                 //MARK: - pay orders
                 HStack {
@@ -62,7 +59,7 @@ struct CartView: View {
                 .background(Color("buttonColor"))
                 .cornerRadius(20)
                 .padding()
-                .padding(.bottom, 10)
+                
             }
         } else {
             VStack {
@@ -86,6 +83,7 @@ struct CartView: View {
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView(show: .constant(true))
+            .environmentObject(CartViewModel())
             .preferredColorScheme(.light)
     }
 }

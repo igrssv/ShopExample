@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProductsListView: View {
-    @ObservedObject var vm: ShopboardViewModel
-    
-    
+    @ObservedObject var vm: ProducrListViewModel
+    var namespace: Namespace.ID
+
     let gridItems = [
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20),
         GridItem(.flexible(minimum: 40, maximum: 250), spacing: 20)
@@ -21,7 +21,7 @@ struct ProductsListView: View {
                 ZStack {
                     LazyVGrid(columns: gridItems) {
                         ForEach(vm.products, id:\.id) { product in
-                            ItemProductView(vm: ItemViewModel(product: product))
+                            ItemProductView(vm: ItemViewModel(product: product, detatilCategoryVM: vm.detatilCategoryVM), namespace: namespace)
                         }
                     }
                     .padding()
@@ -34,7 +34,8 @@ struct ProductsListView: View {
 }
 
 struct ProductsListView_Previews: PreviewProvider {
+    @Namespace static private var namespace
     static var previews: some View {
-        ProductsListView(vm: ShopboardViewModel(category: ""))
+        ProductsListView(vm: ProducrListViewModel(detatilCategoryVM: DetatilCategoryViewModel(mainViewVM: MainViewModel())), namespace: namespace)
     }
 }
