@@ -74,7 +74,7 @@ struct SearchView: View {
                     .foregroundColor(.red.opacity(0.8))
                     .offset(x: 1, y: vm.products.isEmpty ? -30 : -5)
                     .matchedGeometryEffect(id: "cartGoods", in: namespace)
-                Text(vm.products.count != 0 ? "" : "\(vm.products.count)")
+                Text(vm.products.count != 0 ? "\(vm.products.count)" : "")
                     .font(.system(size: 10))
                     .bold()
                     .foregroundColor(.white)

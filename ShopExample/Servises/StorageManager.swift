@@ -39,7 +39,7 @@ extension StorageManager {
             save(data: data, key: key.rawValue)
         } catch {
             print(error)
-        }
+        } 
     }
     //MARK: - Save Data
     func save(data: Data, key: String) {

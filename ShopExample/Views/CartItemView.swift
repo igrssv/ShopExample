@@ -28,7 +28,7 @@ struct CartItemView: View {
                     .frame(height: 45)
                     .frame(maxWidth: .infinity, alignment:  .leading)
                 HStack {
-                    Text("1x \(vm.price) $")
+                    Text("1x \(String(format: "%.2f",vm.price)) $")
                         .italic()
                     Spacer()
                     VStack {

@@ -41,10 +41,28 @@ struct DetailProductView: View {
                     .padding(.bottom, 65)
                 }
                 .padding(.top)
-                CloseView()
-                    .onTapGesture {
-                        vm.showDetailProduct()
+                HStack {
+//                    ZStack {
+//                        Circle()
+//                            .frame(height: 10)
+//
+//                        Image(systemName: "cart")
+//                            .font(.title3)
+//                            .foregroundColor(.black)
+//                            .frame(width: 10, height: 10)
+//                            .padding()
+//                            .background(Color("ToolBarButton"))
+//                            .clipShape(Circle())
+//
+//                    }
+                    Spacer()
+                    
+                    CloseView()
+                        .onTapGesture {
+                            vm.showDetailProduct()
                     }
+                    
+                }
             }
             //MARK: - Button bye to cart product
             HStack {
@@ -83,5 +101,6 @@ struct DetailProductView_Previews: PreviewProvider {
     @Namespace static private var namespace
     static var previews: some View {
         DetailProductView(vm: ItemViewModel(product: Product.fetchOneProduct()))
+            .environmentObject(CartViewModel())
     }
 }

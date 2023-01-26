@@ -27,6 +27,7 @@ struct AddressView: View {
                                 Text(item.home)
                                     .font(.title3)
                             }
+                            .foregroundColor(.black)
                             .padding()
                             .frame(height: 180)
                             .frame(maxWidth: .infinity, alignment: .leading)
